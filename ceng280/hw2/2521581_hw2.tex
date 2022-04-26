@@ -69,21 +69,20 @@ Then, \begin{flalign*}
 \paragraph{d)}Write a context-free grammar for the language $L_3 = L_1 \cup  L_2.$\\\\
 Let $G_1 = (V_1, \Sigma_1, R_1, S_1)$ for the language $L_1$ and $G_2 = (V2, \Sigma_2, R_2, S_2)$ for the language $L_2$.\\\\
 Then $G_3 = (V_1 \cup V2 \cup \{S\}, \Sigma_1 \cup \Sigma_2, R_1 \cup R_2 \cup \{S \rightarrow S_1, S \rightarrow S_2\})$ for the language $L_3$.\\\\
-
 \begin{flalign*}
        V_3 = \{&S, S_1, S_2, a, b\}\\
     \Sigma = \{&a, b\}\\
          R = \{&S \rightarrow S_1,\\
                &S \rightarrow S_2,\\
-               &S_1 \rightarrow aS_1bS_1b\\
-               &S_1 \rightarrow bS_1aS_1b\\
-               &S_1 \rightarrow bS_1bS_1a\\
-               &S_1 \rightarrow e\\
-               &S_2 \rightarrow aS_2bS_2a\\
-               &S_2 \rightarrow aS_2aS_2b\\
-               &S_2 \rightarrow bS_2aS_2a\\
-               &S_2 \rightarrow bS_2a\\
-               &S_2 \rightarrow aS_2b\\
+               &S_1 \rightarrow aS_1bS_1b,\\
+               &S_1 \rightarrow bS_1aS_1b,\\
+               &S_1 \rightarrow bS_1bS_1a,\\
+               &S_1 \rightarrow e,\\
+               &S_2 \rightarrow aS_2bS_2a,\\
+               &S_2 \rightarrow aS_2aS_2b,\\
+               &S_2 \rightarrow bS_2aS_2a,\\
+               &S_2 \rightarrow bS_2a,\\
+               &S_2 \rightarrow aS_2b,\\
                &S_2 \rightarrow e\}
 \end{flalign*}
 \section*{Answer 2}
@@ -94,15 +93,17 @@ For the string $00111$, there are more than one possible rightmost derivations.
      \item $S \rightarrow AS \rightarrow A \rightarrow 0A1 \rightarrow 0A11 \rightarrow 00111$
      \item $S \rightarrow AS \rightarrow A \rightarrow A1 \rightarrow 0A11 \rightarrow 00111$
 \end{enumerate}
-\paragraph{b)}Give an unambiguous grammar for $L(G_1)$. (i.e. disambiguate the given grammar.)
+\paragraph{b)}Give an unambiguous grammar for $L(G_1)$. (i.e. disambiguate the given grammar.)\\\\
+The reason why this grammar is ambiguous is that whenever the derivation includes the rules $A \rightarrow 0A1$ and $A \rightarrow A1$ these rules' application order can be swapped without affecting the final string. This issue can be solved in a way that restricts the application order of the rules. For this purpose, we will define a new nonterminal $B$, and define a transition from $A$ to $B$. After some modifications, $G_1$ is as follows:
 \begin{flalign*}
-     V = \{&S, A, 0, 1\},\\
-\Sigma = \{&0, 1\},\\
-     R = \{&S \rightarrow SS,\\
-           &S \rightarrow A,\\
-           &A \rightarrow 0A1\\
-           &A \rightarrow 1\}.
+     V = \{&S, A, B, 0, 1\}\\
+\Sigma = \{&0, 1\}\\
+     R = \{&S \rightarrow AS,\\
+           &S \rightarrow e,\\
+           &A \rightarrow 0A1,\\
+           &A \rightarrow B,\\
+           &B \rightarrow B1,\\
+           &B \rightarrow 01\}.
 \end{flalign*}
 
 \end{document}
-
