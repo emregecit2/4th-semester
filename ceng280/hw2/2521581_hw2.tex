@@ -17,7 +17,7 @@
 
 \section*{Student Information}
 
-Name : Emre\\
+Name : Emre Geçit\\
 
 ID : 2521581\\
 
@@ -84,18 +84,25 @@ Then $G_3 = (V_1 \cup V2 \cup \{S\}, \Sigma_1 \cup \Sigma_2, R_1 \cup R_2 \cup \
                &S_2 \rightarrow bS_2aS_2a\\
                &S_2 \rightarrow bS_2a\\
                &S_2 \rightarrow aS_2b\\
-               &S_2 \rightarrow e\\\}.
+               &S_2 \rightarrow e\}
 \end{flalign*}
 \section*{Answer 2}
-Given $G1 = {V, \Sigma, R, S}$ where $V = {0,1, S, A}$ , $\Sigma = {0,1}$ , and $R = {S \rightarrow AS |e , A \rightarrow A1 | 0A1 | 01}$
-\paragraph{a)}Show that $G1$ is ambiguous.\\\\
-For the string $00111$, there are two possible leftmost derivations.
-
-\paragraph{b)}
-
-\section*{Answer 3}
-\paragraph{a)}
-\paragraph{b)}
+Given $G_1 = \{V, \Sigma, R, S\}$ where $V = \{0,1, S, A\}$ , $\Sigma = \{0,1\}$ , and $R = \{S \rightarrow AS |e , A \rightarrow A1 | 0A1 | 01\}$
+\paragraph{a)}Show that $G_1$ is ambiguous.\\\\
+For the string $00111$, there are more than one possible rightmost derivations.
+\begin{enumerate}[label=\arabic*)]
+     \item $S \rightarrow AS \rightarrow A \rightarrow 0A1 \rightarrow 0A11 \rightarrow 00111$
+     \item $S \rightarrow AS \rightarrow A \rightarrow A1 \rightarrow 0A11 \rightarrow 00111$
+\end{enumerate}
+\paragraph{b)}Give an unambiguous grammar for $L(G_1)$. (i.e. disambiguate the given grammar.)
+\begin{flalign*}
+     V = \{&S, A, 0, 1\},\\
+\Sigma = \{&0, 1\},\\
+     R = \{&S \rightarrow SS,\\
+           &S \rightarrow A,\\
+           &A \rightarrow 0A1\\
+           &A \rightarrow 1\}.
+\end{flalign*}
 
 \end{document}
 
