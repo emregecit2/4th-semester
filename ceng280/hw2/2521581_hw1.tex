@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Emre\\
+
+ID : 2521581\\
+
+
+\section*{Answer 1}
+
+\paragraph{a)}Write a context-free grammar for the language $L_1 = \{w | w \in \{a, b\}^* \wedge  \text{ w has twise as many b's as a's}\}$.\\\\
+Let $G$ be the grammar $(V, \Sigma, R, S)$ for the language $L_1$ where
+\begin{flalign*}
+         V = \{&S, a, b\},\\
+    \Sigma = \{&a, b\},\\
+         R = \{&S \rightarrow aSbSb,\\
+               &S \rightarrow bSaSb,\\
+               &S \rightarrow bSbSa,\\
+               &S \rightarrow e\}.
+\end{flalign*}
+\paragraph{b)}Write a context-free grammar for the language $L_2 = \{a^nb^m | m, n \in \mathbb{N}  \wedge m \leq n \leq 2m\}$.\\\\
+Let $G$ be the grammar $(V, \Sigma, R, S)$ for the language $L_2$ where
+\begin{flalign*}
+         V = \{&S, a, b\},\\
+    \Sigma = \{&a, b\},\\
+         R = \{&S \rightarrow aSbSa,\\
+               &S \rightarrow aSaSb,\\
+               &S \rightarrow bSaSa,\\
+               &S \rightarrow bSa,\\
+               &S \rightarrow aSb,\\
+               &S \rightarrow e\}.
+\end{flalign*}
+\newpage
+\paragraph{c)}Formally define and draw a PDA that accepts $L_1$.\\\\
+Let $(K, \Sigma, V, \Delta, p, \{q\})$ be the sextuple for the language $L_1$ where $K$, $\Sigma$, $V$, $R$ are defined on part a.
+
+$\Delta$ contains the following transitions:
+\begin{enumerate}[label=\arabic*)]
+    \item $((p, e, e), (q, S))$
+    \item $((p, e, A), (q, x))$ for each rule $A \rightarrow x$ in $R$
+    \item $((q, a, a), (q, e))$ for each $a \in \Sigma$
+\end{enumerate}
+Then, \begin{flalign*}
+    \Delta = \{&((p, e, e), (q, S)),\\
+               &((p, e, S), (q, aSbSa)),\\
+               &((p, e, S), (q, bSaSa)),\\
+               &((p, e, S), (q, aSaSb)),\\
+               &((p, e, S), (q, e)),\\
+               &((p, a, a), (q, e)),\\
+               &((p, b, b), (q, e))\}.
+\end{flalign*}
+
+\paragraph{d)}Write a context-free grammar for the language $L3 = L_1 \cup  L_2.$
+Let $G_1$ = $(V1, \Sigma1, R1, S1)$ for the language $L_1$ and $G_2$ = $(V2, \Sigma2, R2, S2)$ for the language $L_2$.\\\\
+Then $G_3 = (V1 \cup V2 \cup \{S\}, \Sigma1 \cup \Sigma2, R1 \cup R2 \cup \{S \rightarrow S1, S \rightarrow S2\})$ for the language $L3$.\\\\
+
+\begin{flalign*}
+       V_3 = \{&S, S_1, S_2, a, b\}\\
+    \Sigma = \{&a, b\}\\
+         R = \{&S \rightarrow S_1,\\
+               &S \rightarrow S_2,\\
+               &S_1 \rightarrow aS_1bS_1b\\
+               &S_1 \rightarrow bS_1aS_1b\\
+               &S_1 \rightarrow bS_1bS_1a\\
+               &S_1 \rightarrow e\\
+               &S_2 \rightarrow aS_2bS_2a\\
+               &S_2 \rightarrow aS_2aS_2b\\
+               &S_2 \rightarrow bS_2aS_2a\\
+               &S_2 \rightarrow bS_2a\\
+               &S_2 \rightarrow aS_2b\\
+               &S_2 \rightarrow e\\
+               \}.
+\end{flalign*}
+
+\section*{Answer 2}
+\paragraph{a)}
+\paragraph{b)}
+
+\section*{Answer 3}
+\paragraph{a)}
+\paragraph{b)}
+
+\end{document}
+
