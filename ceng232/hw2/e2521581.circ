@@ -49,9 +49,9 @@
   </lib>
   <lib name="1" desc="#CENG232 Gates">
     <tool name="Constant">
-      <a name="facing" val="south" />
+      <a name="facing" val="east" />
       <a name="width" val="1" />
-      <a name="value" val="0x0" />
+      <a name="value" val="0x1" />
     </tool>
     <tool name="NOT Gate">
       <a name="facing" val="east" />
@@ -443,116 +443,15 @@
     <wire from="(100,800)" to="(100,920)" />
     <wire from="(1000,1150)" to="(1010,1150)" />
     <wire from="(740,870)" to="(820,870)" />
-    <comp lib="1" name="XOR Gate" loc="(390,280)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="OR Gate" loc="(300,390)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="XOR Gate" loc="(390,320)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="OR Gate" loc="(840,1150)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="XOR Gate" loc="(230,810)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(80,60)">
-      <a name="facing" val="south" />
-      <a name="output" val="false" />
-      <a name="width" val="1" />
-      <a name="tristate" val="false" />
-      <a name="pull" val="none" />
-      <a name="label" val="A1" />
-      <a name="labelloc" val="west" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(1020,1170)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L3" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(1000,1150)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L1" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="OR Gate" loc="(390,890)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(480,970)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="NOT Gate" loc="(980,1140)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,500)">
-      <a name="Facing" val="east" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,580)">
+    <comp lib="1" name="Constant" loc="(330,640)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
-    <comp lib="1" name="XOR Gate" loc="(290,770)">
+    <comp lib="1" name="NOT Gate" loc="(980,1200)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(980,1130)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="S" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(280,750)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(340,500)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
     </comp>
     <comp lib="1" name="XOR Gate" loc="(430,820)">
       <a name="facing" val="east" />
@@ -560,70 +459,23 @@
       <a name="size" val="30" />
       <a name="inputs" val="2" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(240,740)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(990,1140)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L0" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(330,380)">
-      <a name="facing" val="east" />
+    <comp lib="0" name="Pin" loc="(150,60)">
+      <a name="facing" val="south" />
       <a name="output" val="false" />
       <a name="width" val="1" />
       <a name="tristate" val="false" />
       <a name="pull" val="none" />
-      <a name="label" val="" />
+      <a name="label" val="B0" />
       <a name="labelloc" val="west" />
       <a name="labelfont" val="SansSerif plain 12" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(910,880)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,690)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(560,970)">
+    <comp lib="1" name="Constant" loc="(570,970)">
       <a name="facing" val="south" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
-    <comp lib="2" name="3-to-8 decoder (74138)" loc="(820,860)">
+    <comp lib="2" name="3-to-8 decoder (74138)" loc="(890,1130)">
       <a name="Facing" val="east" />
-    </comp>
-    <comp lib="1" name="NOR Gate" loc="(390,140)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(710,210)">
-      <a name="facing" val="east" />
-      <a name="output" val="false" />
-      <a name="width" val="1" />
-      <a name="tristate" val="false" />
-      <a name="pull" val="none" />
-      <a name="label" val="O0" />
-      <a name="labelloc" val="west" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="XOR Gate" loc="(320,890)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
     </comp>
     <comp lib="0" name="Pin" loc="(1040,1190)">
       <a name="facing" val="west" />
@@ -635,18 +487,154 @@
       <a name="labelloc" val="east" />
       <a name="labelfont" val="SansSerif plain 12" />
     </comp>
-    <comp lib="1" name="Constant" loc="(330,640)">
+    <comp lib="1" name="OR Gate" loc="(840,1010)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(390,830)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,580)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
-    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(750,990)">
+    <comp lib="1" name="XOR Gate" loc="(370,920)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="2" name="3-to-8 decoder (74138)" loc="(820,860)">
       <a name="Facing" val="east" />
     </comp>
-    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,370)">
+    <comp lib="1" name="Constant" loc="(340,500)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(340,630)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(280,750)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="OR Gate" loc="(840,1290)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="OR Gate" loc="(300,390)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(980,1190)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(980,1160)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,630)">
       <a name="Facing" val="east" />
     </comp>
-    <comp lib="1" name="AND Gate" loc="(360,900)">
+    <comp lib="0" name="Pin" loc="(1050,1200)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L6" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(980,1140)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(1000,1150)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L1" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,670)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,700)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(300,410)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(980,1150)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,500)">
+      <a name="Facing" val="east" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(900,1220)">
+      <a name="facing" val="north" />
+      <a name="width" val="1" />
+      <a name="value" val="0x1" />
+    </comp>
+    <comp lib="1" name="XOR Gate" loc="(390,280)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(1030,1180)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L4" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(990,1140)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L0" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="OR Gate" loc="(840,1150)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
@@ -664,64 +652,15 @@
       <a name="size" val="30" />
       <a name="inputs" val="2" />
     </comp>
-    <comp lib="0" name="Pin" loc="(1030,1180)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L4" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,570)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,520)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(1010,1160)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L2" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="2" name="3-to-8 decoder (74138)" loc="(890,1130)">
-      <a name="Facing" val="east" />
-    </comp>
-    <comp lib="1" name="NOT Gate" loc="(180,780)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(330,780)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(440,970)">
+    <comp lib="0" name="Pin" loc="(100,60)">
       <a name="facing" val="south" />
+      <a name="output" val="false" />
       <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(900,1220)">
-      <a name="facing" val="north" />
-      <a name="width" val="1" />
-      <a name="value" val="0x1" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,530)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
+      <a name="tristate" val="false" />
+      <a name="pull" val="none" />
+      <a name="label" val="A0" />
+      <a name="labelloc" val="west" />
+      <a name="labelfont" val="SansSerif plain 12" />
     </comp>
     <comp lib="0" name="Pin" loc="(710,190)">
       <a name="facing" val="east" />
@@ -733,52 +672,32 @@
       <a name="labelloc" val="west" />
       <a name="labelfont" val="SansSerif plain 12" />
     </comp>
-    <comp lib="0" name="Pin" loc="(150,60)">
-      <a name="facing" val="south" />
-      <a name="output" val="false" />
-      <a name="width" val="1" />
-      <a name="tristate" val="false" />
-      <a name="pull" val="none" />
-      <a name="label" val="B0" />
-      <a name="labelloc" val="west" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="XOR Gate" loc="(260,930)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(390,190)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(390,230)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,680)">
+    <comp lib="1" name="Constant" loc="(330,540)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
-    <comp lib="1" name="XOR Gate" loc="(370,920)">
+    <comp lib="1" name="Constant" loc="(330,530)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(390,830)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
+      <a name="value" val="0x0" />
     </comp>
     <comp lib="1" name="NOT Gate" loc="(980,1170)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(260,840)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(920,1220)">
+      <a name="facing" val="north" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(180,780)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
@@ -786,46 +705,35 @@
     <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(750,1130)">
       <a name="Facing" val="east" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(980,1160)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
+    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,370)">
+      <a name="Facing" val="east" />
     </comp>
-    <comp lib="0" name="Pin" loc="(100,60)">
+    <comp lib="1" name="Constant" loc="(340,370)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(80,60)">
       <a name="facing" val="south" />
       <a name="output" val="false" />
       <a name="width" val="1" />
       <a name="tristate" val="false" />
       <a name="pull" val="none" />
-      <a name="label" val="A0" />
+      <a name="label" val="A1" />
       <a name="labelloc" val="west" />
       <a name="labelfont" val="SansSerif plain 12" />
     </comp>
-    <comp lib="1" name="XOR Gate" loc="(340,800)">
+    <comp lib="1" name="Constant" loc="(330,570)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
+      <a name="value" val="0x0" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(790,920)">
+    <comp lib="1" name="Constant" loc="(640,970)">
       <a name="facing" val="south" />
       <a name="width" val="1" />
-      <a name="size" val="30" />
+      <a name="value" val="0x0" />
     </comp>
-    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(330,630)">
-      <a name="Facing" val="east" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(1050,1200)">
-      <a name="facing" val="west" />
-      <a name="output" val="true" />
-      <a name="width" val="1" />
-      <a name="tristate" val="true" />
-      <a name="pull" val="none" />
-      <a name="label" val="L6" />
-      <a name="labelloc" val="east" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(300,410)">
+    <comp lib="1" name="XOR Gate" loc="(260,930)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
@@ -836,96 +744,36 @@
       <a name="width" val="1" />
       <a name="size" val="30" />
     </comp>
+    <comp lib="1" name="NOR Gate" loc="(390,140)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(330,780)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="XOR Gate" loc="(290,770)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
     <comp lib="1" name="NOT Gate" loc="(980,1180)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="NOT Gate" loc="(980,1190)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="NOT Gate" loc="(980,1200)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(850,950)">
-      <a name="facing" val="north" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(340,370)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,700)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="0" name="Pin" loc="(710,170)">
-      <a name="facing" val="east" />
-      <a name="output" val="false" />
-      <a name="width" val="1" />
-      <a name="tristate" val="false" />
-      <a name="pull" val="none" />
-      <a name="label" val="O2" />
-      <a name="labelloc" val="west" />
-      <a name="labelfont" val="SansSerif plain 12" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(570,970)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,670)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,540)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(920,1220)">
-      <a name="facing" val="north" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="AND Gate" loc="(250,910)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="OR Gate" loc="(840,1290)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
     </comp>
     <comp lib="1" name="Constant" loc="(520,970)">
       <a name="facing" val="south" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(260,840)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-    </comp>
-    <comp lib="1" name="OR Gate" loc="(840,1010)">
-      <a name="facing" val="east" />
-      <a name="width" val="1" />
-      <a name="size" val="30" />
-      <a name="inputs" val="2" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(330,710)">
-      <a name="facing" val="east" />
+    <comp lib="1" name="Constant" loc="(850,950)">
+      <a name="facing" val="north" />
       <a name="width" val="1" />
       <a name="value" val="0x0" />
     </comp>
@@ -939,35 +787,182 @@
       <a name="labelloc" val="west" />
       <a name="labelfont" val="SansSerif plain 12" />
     </comp>
-    <comp lib="1" name="NOR Gate" loc="(390,100)">
+    <comp lib="1" name="Constant" loc="(480,970)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="XOR Gate" loc="(320,890)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
       <a name="inputs" val="2" />
     </comp>
-    <comp lib="1" name="NOT Gate" loc="(980,1150)">
+    <comp lib="0" name="Pin" loc="(1010,1160)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L2" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(250,910)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,690)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(390,230)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(710,210)">
+      <a name="facing" val="east" />
+      <a name="output" val="false" />
+      <a name="width" val="1" />
+      <a name="tristate" val="false" />
+      <a name="pull" val="none" />
+      <a name="label" val="O0" />
+      <a name="labelloc" val="west" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(360,900)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(750,990)">
+      <a name="Facing" val="east" />
+    </comp>
+    <comp lib="1" name="XOR Gate" loc="(390,320)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,520)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(790,920)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(1020,1170)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="L3" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(980,1130)">
+      <a name="facing" val="west" />
+      <a name="output" val="true" />
+      <a name="width" val="1" />
+      <a name="tristate" val="true" />
+      <a name="pull" val="none" />
+      <a name="label" val="S" />
+      <a name="labelloc" val="east" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(910,880)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
     </comp>
+    <comp lib="1" name="XOR Gate" loc="(340,800)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,710)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="AND Gate" loc="(390,190)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
     <comp lib="2" name="4-to-1 MUX (x2) (74153)" loc="(750,1270)">
       <a name="Facing" val="east" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(640,970)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
-    </comp>
-    <comp lib="1" name="Constant" loc="(340,630)">
-      <a name="facing" val="south" />
-      <a name="width" val="1" />
-      <a name="value" val="0x0" />
     </comp>
     <comp lib="1" name="AND Gate" loc="(220,790)">
       <a name="facing" val="east" />
       <a name="width" val="1" />
       <a name="size" val="30" />
       <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,380)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x1" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(440,970)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="NOT Gate" loc="(240,740)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+    </comp>
+    <comp lib="1" name="XOR Gate" loc="(230,810)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(330,680)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
+    </comp>
+    <comp lib="1" name="OR Gate" loc="(390,890)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="0" name="Pin" loc="(710,170)">
+      <a name="facing" val="east" />
+      <a name="output" val="false" />
+      <a name="width" val="1" />
+      <a name="tristate" val="false" />
+      <a name="pull" val="none" />
+      <a name="label" val="O2" />
+      <a name="labelloc" val="west" />
+      <a name="labelfont" val="SansSerif plain 12" />
+    </comp>
+    <comp lib="1" name="NOR Gate" loc="(390,100)">
+      <a name="facing" val="east" />
+      <a name="width" val="1" />
+      <a name="size" val="30" />
+      <a name="inputs" val="2" />
+    </comp>
+    <comp lib="1" name="Constant" loc="(560,970)">
+      <a name="facing" val="south" />
+      <a name="width" val="1" />
+      <a name="value" val="0x0" />
     </comp>
   </circuit>
 </project>
