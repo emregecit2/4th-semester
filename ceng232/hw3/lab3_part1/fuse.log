@@ -19,5 +19,5 @@ Waiting for 1 sub-compilation(s) to finish...
 Compiled 4 Verilog Units
 Built simulation executable /home/bs2020/e2521581/Desktop/emregecit2@github/4th-semester/ceng232/hw3/lab3_part1/testbench_ic1337_isim_beh.exe
 Fuse Memory Usage: 620096 KB
-Fuse CPU Usage: 60 ms
-GCC CPU Usage: 490 ms
+Fuse CPU Usage: 50 ms
+GCC CPU Usage: 480 ms
