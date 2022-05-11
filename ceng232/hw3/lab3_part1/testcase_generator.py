@@ -26,7 +26,7 @@ class I337:
         Z = xor(Q0, Q1)
         return Q0, Q1, Z
 
-with open("testbench_ab.v", "w") as file:
+with open("./testbench_ab.v", "w") as file:
     write_string = """`timescale 1ns / 1ps
 
 module testbench_ab;
@@ -67,7 +67,7 @@ module testbench_ab;
     file.write("""end
     endmodule""")
 
-with open("testbench_i337.v", "w") as file:
+with open("./testbench_ic1337.v", "w") as file:
     write_string = """`timescale 1ns / 1ps
 
 module testbench_ic1337;
