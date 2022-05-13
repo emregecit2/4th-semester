@@ -12,6 +12,10 @@
 \setlength{\evensidemargin}{0.0cm}
 \usepackage{indentfirst}
 \usepackage{amsfonts}
+\usepackage{wrapfig}
+\usepackage[linguistics]{forest}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
 
 \begin{document}
 
@@ -39,11 +43,8 @@ Let $G$ be the grammar $(V, \Sigma, R, S)$ for the language $L_2$ where
 \begin{flalign*}
          V = \{&S, a, b\},\\
     \Sigma = \{&a, b\},\\
-         R = \{&S \rightarrow aSbSa,\\
-               &S \rightarrow aSaSb,\\
-               &S \rightarrow bSaSa,\\
-               &S \rightarrow bSa,\\
-               &S \rightarrow aSb,\\
+         R = \{&S \rightarrow aSb,\\
+               &S \rightarrow aSbb,\\
                &S \rightarrow e\}.
 \end{flalign*}
 \newpage
@@ -56,6 +57,26 @@ $\Delta$ contains the following transitions:
     \item $((p, e, A), (q, x))$ for each rule $A \rightarrow x$ in $R$
     \item $((q, a, a), (q, e))$ for each $a \in \Sigma$
 \end{enumerate}
+\begin{wrapfigure}{r}{0.57\textwidth}
+     \begin{tikzpicture}[->,auto,node distance=3cm]
+     
+     \node[initial,state] (p)                    {$p$};
+     \node[state, accepting]         (q) [right of=p]       {$q$};
+     
+     \path (p) edge              node {$\begin{aligned}
+                    &e, e / S\\
+                    &e, S / aSbSa\\
+                    &e, S / bSaSa\\
+                    &e, S / aSaSb\\
+                    &e, S / e\\
+                    &a, a / e\\
+                    &b, b / e
+      \end{aligned}$} (q)
+
+     ;
+     \end{tikzpicture}
+\end{wrapfigure}
+
 Then, \begin{flalign*}
     \Delta = \{&((p, e, e), (q, S)),\\
                &((p, e, S), (q, aSbSa)),\\
@@ -64,7 +85,7 @@ Then, \begin{flalign*}
                &((p, e, S), (q, e)),\\
                &((p, a, a), (q, e)),\\
                &((p, b, b), (q, e))\}.
-\end{flalign*}
+\end{flalign*}\\\\
 
 \paragraph{d)}Write a context-free grammar for the language $L_3 = L_1 \cup  L_2.$\\\\
 Let $G_1 = (V_1, \Sigma_1, R_1, S_1)$ for the language $L_1$ and $G_2 = (V2, \Sigma_2, R_2, S_2)$ for the language $L_2$.\\\\
@@ -78,12 +99,9 @@ Then $G_3 = (V_1 \cup V2 \cup \{S\}, \Sigma_1 \cup \Sigma_2, R_1 \cup R_2 \cup \
                &S_1 \rightarrow bS_1aS_1b,\\
                &S_1 \rightarrow bS_1bS_1a,\\
                &S_1 \rightarrow e,\\
-               &S_2 \rightarrow aS_2bS_2a,\\
-               &S_2 \rightarrow aS_2aS_2b,\\
-               &S_2 \rightarrow bS_2aS_2a,\\
-               &S_2 \rightarrow bS_2a,\\
                &S_2 \rightarrow aS_2b,\\
-               &S_2 \rightarrow e\}
+               &S_2 \rightarrow aS_2bb,\\
+               &S_2 \rightarrow e\}.
 \end{flalign*}
 \section*{Answer 2}
 Given $G_1 = \{V, \Sigma, R, S\}$ where $V = \{0,1, S, A\}$ , $\Sigma = \{0,1\}$ , and $R = \{S \rightarrow AS |e , A \rightarrow A1 | 0A1 | 01\}$
@@ -106,4 +124,25 @@ The reason why this grammar is ambiguous is that whenever the derivation include
            &B \rightarrow 01\}
 \end{flalign*}
 
+\paragraph{c)}Give the leftmost derivation of the string 00111 from the grammar you have constructed at part-b
+and draw the corresponding parse tree.\\\\
+$S \rightarrow AS \rightarrow 0A1S \rightarrow 0B1S \rightarrow 0B11S \rightarrow 00111S \rightarrow 00111$\\\\
+\begin{forest}
+     [\textit{$S$}
+       [\textit{$A$}
+           [\textit{$0$}]
+           [\textit{$A$}
+               [\textit{$B$}
+                   [\textit{$B$}
+                       [\textit{$0$}]
+                       [\textit{$1$}]
+                   ]
+                   [\textit{$1$}]
+               ]
+           ]
+           [\textit{$1$}]
+       ]
+       [\textit{$e$}]
+     ]
+   \end{forest}
 \end{document}
