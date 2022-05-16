@@ -30,9 +30,66 @@ module lab3_2(
 			isEmptyDigital=1'b1;
 			unlockDigital=0;
 	end
-	//Modify the lines below to implement your design
-	//always @(posedge CLK) 
-	//...
+	
+	always @(posedge CLK)
+	begin
+		unlockDigital = 0;
+		unlockMera = 0;
+		restrictionWarnDigital = 0;
+		restrictionWarnMera = 0;
+		case (lab)
+			0: begin
+				case (mode)
+					2'b01: begin
+						if (!isFullDigital) begin
+							if (numOfStuInDigital < 15) begin
+								unlockDigital = 1;
+								numOfStuInDigital = numOfStuInDigital + 1;
+							end
+							else begin
+								if (^smartCode) begin // isOdd
+									unlockDigital = 1;
+									numOfStuInDigital = numOfStuInDigital + 1;
+								end
+								else restrictionWarnDigital = 1;
+							end
+						end
+					end
+
+					2'b00: begin
+						unlockDigital = 1;
+						numOfStuInDigital = numOfStuInDigital - 1;
+					end
+
+				endcase
+			end
+
+			1: begin
+				case (mode)
+					2'b01: begin
+						if (!isFullMera) begin
+							if (numOfStuInMera < 15) begin
+								unlockDigital = 1;
+								numOfStuInMera = numOfStuInMera + 1;
+							end
+							else begin
+								if (^smartCode) restrictionWarnMera = 1;
+								else begin
+									unlockMera = 1;
+									numOfStuInMera = numOfStuInMera + 1;
+								end
+							end
+						end
+					end
+
+					2'b00: begin
+						unlockMera = 1;
+						numOfStuInMera = numOfStuInMera - 1;
+					end
+				endcase
+			end
+		endcase
+	end
 	
 endmodule
 
