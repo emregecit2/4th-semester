@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Mon May 16 20:07:15 2022">
+<application name="pn" timeStamp="Tue May 17 12:59:50 2022">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="4FE7210BC7B04399B0FC34305067F6DE" type="project"/>
-<property name="ProjectIteration" value="0" type="project"/>
+<property name="ProjectIteration" value="4" type="project"/>
 <property name="ProjectFile" value="/home/bs2020/e2521581/Desktop/emregecit2@github/4th-semester/ceng232/hw3/lab3_part2/lab3_2.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2014-03-24T18:34:24" type="project"/>
 </section>
@@ -17,6 +17,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_LastAppliedStrategy" value="Xilinx Default (unlocked)" type="design"/>
 <property name="PROP_ManualCompileOrderImp" value="false" type="design"/>
 <property name="PROP_PropSpecInProjFile" value="Store all values" type="design"/>
+<property name="PROP_SelectedInstanceHierarchicalPath" value="/Board232/HH" type="process"/>
 <property name="PROP_Simulator" value="ISim (VHDL/Verilog)" type="design"/>
 <property name="PROP_SynthTopFile" value="changed" type="process"/>
 <property name="PROP_Top_Level_Module_Type" value="HDL" type="design"/>
@@ -24,9 +25,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2014-03-24T18:34:24" type="design"/>
 <property name="PROP_intWbtProjectID" value="4FE7210BC7B04399B0FC34305067F6DE" type="design"/>
+<property name="PROP_intWbtProjectIteration" value="4" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_lockPinsUcfFile" value="changed" type="process"/>
+<property name="PROP_selectedSimRootSourceNode_behav" value="work.lab3_2" type="process"/>
 <property name="PROP_xilxBitgStart_Clk" value="JTAG Clock" type="process"/>
 <property name="PROP_AutoTop" value="true" type="design"/>
 <property name="PROP_DevFamily" value="Spartan3E" type="design"/>
