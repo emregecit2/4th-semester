@@ -69,7 +69,7 @@ module lab3_2(
 					2'b01: begin
 						if (!isFullMera) begin
 							if (numOfStuInMera < 15) begin
-								unlockDigital = 1;
+								unlockMera = 1;
 								numOfStuInMera = numOfStuInMera + 1;
 							end
 							else begin
