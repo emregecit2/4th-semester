@@ -33,6 +33,10 @@ module lab3_2(
 	
 	always @(posedge CLK)
 	begin
+		unlockDigital = 0;
+		unlockMera = 0;
+		restrictionWarnDigital = 0;
+		restrictionWarnMera = 0;
 		case (lab)
 			0: begin
 				case (mode)
@@ -85,10 +89,6 @@ module lab3_2(
 				endcase
 			end
 		endcase
-		unlockDigital = 0;
-		unlockMera = 0;
-		restrictionWarnDigital = 0;
-		restrictionWarnMera = 0;
 		isEmptyDigital = numOfStuInDigital == 0;
 		isFullDigital = numOfStuInDigital == 30;
 		isEmptyMera = numOfStuInMera == 0;
