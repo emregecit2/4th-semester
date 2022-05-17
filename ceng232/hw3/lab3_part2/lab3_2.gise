@@ -46,6 +46,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="Board232.ut" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="Board232.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="Board232.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Board232_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="Board232_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Board232_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Board232_map.mrp" xil_pn:subbranch="Map"/>
@@ -118,6 +119,7 @@
     <transform xil_pn:end_ts="1652721063" xil_pn:in_ck="-119665189084740326" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="2054972880754532053" xil_pn:start_ts="1652721063">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -129,6 +131,7 @@
     <transform xil_pn:end_ts="1652721063" xil_pn:in_ck="-4643632391386679742" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="3195723369836120664" xil_pn:start_ts="1652721063">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -163,12 +166,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1652720838" xil_pn:in_ck="-119665189084740326" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8799217288386603887" xil_pn:start_ts="1652720835">
+    <transform xil_pn:end_ts="1652792843" xil_pn:in_ck="-119665189084740326" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8799217288386603887" xil_pn:start_ts="1652792839">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="Board232.lso"/>
       <outfile xil_pn:name="Board232.ngc"/>
@@ -189,6 +190,8 @@
     <transform xil_pn:end_ts="1652781530" xil_pn:in_ck="-8773213883309407024" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="6401916741841642219" xil_pn:start_ts="1652781529">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="Board232.bld"/>
       <outfile xil_pn:name="Board232.ngd"/>
       <outfile xil_pn:name="Board232_ngdbuild.xrpt"/>
@@ -198,6 +201,7 @@
     <transform xil_pn:end_ts="1652781532" xil_pn:in_ck="-7105324368356422063" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="113730145005983477" xil_pn:start_ts="1652781530">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Board232.pcf"/>
       <outfile xil_pn:name="Board232_map.map"/>
       <outfile xil_pn:name="Board232_map.mrp"/>
@@ -212,6 +216,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Board232.ncd"/>
       <outfile xil_pn:name="Board232.pad"/>
       <outfile xil_pn:name="Board232.par"/>
@@ -227,6 +232,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="Board232.bgn"/>
       <outfile xil_pn:name="Board232.bit"/>
       <outfile xil_pn:name="Board232.drc"/>
@@ -239,6 +247,7 @@
     <transform xil_pn:end_ts="1652781537" xil_pn:in_ck="-5905811457635817523" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416187" xil_pn:start_ts="1652781536">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Board232.twr"/>
       <outfile xil_pn:name="Board232.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

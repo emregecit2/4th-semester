@@ -12,7 +12,7 @@ Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: Board232.prj
@@ -159,23 +159,23 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <lab3_2>.
     Related source file is "lab3_2.v".
-WARNING:Xst:1305 - Output <isFullDigital> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <isEmptyMera> is never assigned. Tied to value 1.
-WARNING:Xst:1305 - Output <isFullMera> is never assigned. Tied to value 0.
-WARNING:Xst:1305 - Output <isEmptyDigital> is never assigned. Tied to value 1.
     Found 6-bit register for signal <numOfStuInDigital>.
+    Found 1-bit register for signal <isFullDigital>.
     Found 6-bit register for signal <numOfStuInMera>.
     Found 1-bit register for signal <restrictionWarnMera>.
+    Found 1-bit register for signal <isEmptyMera>.
+    Found 1-bit register for signal <isFullMera>.
+    Found 1-bit register for signal <isEmptyDigital>.
     Found 1-bit register for signal <unlockMera>.
     Found 1-bit register for signal <restrictionWarnDigital>.
     Found 1-bit register for signal <unlockDigital>.
-    Found 6-bit addsub for signal <numOfStuInDigital$share0000> created at line 42.
-    Found 6-bit addsub for signal <numOfStuInMera$share0000> created at line 68.
-    Found 6-bit comparator less for signal <unlockDigital$cmp_lt0000> created at line 45.
-    Found 6-bit comparator less for signal <unlockDigital$cmp_lt0001> created at line 71.
-    Found 1-bit xor5 for signal <unlockDigital$xor0000> created at line 50.
+    Found 6-bit addsub for signal <numOfStuInDigital$share0000> created at line 46.
+    Found 6-bit addsub for signal <numOfStuInMera$share0000> created at line 72.
+    Found 6-bit comparator less for signal <unlockDigital$cmp_lt0000> created at line 49.
+    Found 6-bit comparator less for signal <unlockDigital$cmp_lt0001> created at line 75.
+    Found 1-bit xor5 for signal <unlockDigital$xor0000> created at line 54.
     Summary:
-	inferred  16 D-type flip-flop(s).
+	inferred  20 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 	inferred   1 Xor(s).
@@ -223,8 +223,8 @@ Macro Statistics
  8-bit subtractor                                      : 6
 # Counters                                             : 1
  27-bit up counter                                     : 1
-# Registers                                            : 6
- 1-bit register                                        : 4
+# Registers                                            : 10
+ 1-bit register                                        : 8
  6-bit register                                        : 2
 # Comparators                                          : 8
  6-bit comparator greatequal                           : 6
@@ -254,8 +254,8 @@ Macro Statistics
  8-bit subtractor                                      : 6
 # Counters                                             : 1
  27-bit up counter                                     : 1
-# Registers                                            : 16
- Flip-Flops                                            : 16
+# Registers                                            : 20
+ Flip-Flops                                            : 20
 # Comparators                                          : 8
  6-bit comparator greatequal                           : 6
  6-bit comparator less                                 : 2
@@ -287,8 +287,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 42
- Flip-Flops                                            : 42
+# Registers                                            : 46
+ Flip-Flops                                            : 46
 
 =========================================================================
 
@@ -317,24 +317,27 @@ Design Statistics
 # IOs                              : 43
 
 Cell Usage :
-# BELS                             : 211
+# BELS                             : 219
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 25
-#      LUT2                        : 8
-#      LUT3                        : 18
-#      LUT4                        : 67
-#      LUT4_D                      : 5
-#      LUT4_L                      : 7
+#      LUT2                        : 12
+#      LUT3                        : 13
+#      LUT3_D                      : 3
+#      LUT3_L                      : 4
+#      LUT4                        : 71
+#      LUT4_D                      : 3
+#      LUT4_L                      : 10
 #      MUXCY                       : 25
-#      MUXF5                       : 25
+#      MUXF5                       : 22
 #      VCC                         : 1
 #      XORCY                       : 26
-# FlipFlops/Latches                : 42
-#      FD                          : 27
+# FlipFlops/Latches                : 46
+#      FD                          : 29
 #      FDE                         : 12
-#      FDR                         : 3
-# Clock Buffers                    : 1
+#      FDR                         : 5
+# Clock Buffers                    : 2
+#      BUFG                        : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 40
 #      IBUF                        : 10
@@ -346,12 +349,12 @@ Device utilization summary:
 
 Selected Device : 3s250ecp132-5 
 
- Number of Slices:                       71  out of   2448     2%  
- Number of Slice Flip Flops:             42  out of   4896     0%  
- Number of 4 input LUTs:                133  out of   4896     2%  
+ Number of Slices:                       77  out of   2448     3%  
+ Number of Slice Flip Flops:             46  out of   4896     0%  
+ Number of 4 input LUTs:                144  out of   4896     2%  
  Number of IOs:                          43
  Number of bonded IOBs:                  41  out of     92    44%  
- Number of GCLKs:                         1  out of     24     4%  
+ Number of GCLKs:                         2  out of     24     8%  
 
 ---------------------------
 Partition Resource Summary:
@@ -371,16 +374,15 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+--------------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)          | Load  |
------------------------------------+--------------------------------+-------+
-mclk                               | BUFGP                          | 26    |
-clk(clk1:O)                        | NONE(*)(HH/numOfStuInDigital_5)| 16    |
------------------------------------+--------------------------------+-------+
+-----------------------------------+-----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)       | Load  |
+-----------------------------------+-----------------------------+-------+
+mclk                               | BUFGP                       | 26    |
+clk1(clk1:O)                       | BUFG(*)(HH/numOfStuInMera_5)| 20    |
+-----------------------------------+-----------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -390,9 +392,9 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 5.123ns (Maximum Frequency: 195.183MHz)
-   Minimum input arrival time before clock: 6.962ns
-   Maximum output required time after clock: 9.929ns
+   Minimum period: 5.548ns (Maximum Frequency: 180.235MHz)
+   Minimum input arrival time before clock: 6.821ns
+   Maximum output required time after clock: 9.987ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -447,52 +449,53 @@ Delay:               4.191ns (Levels of Logic = 26)
                                        (87.9% logic, 12.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 5.123ns (frequency: 195.183MHz)
-  Total number of paths / destination ports: 228 / 16
+Timing constraint: Default period analysis for Clock 'clk1'
+  Clock period: 5.548ns (frequency: 180.235MHz)
+  Total number of paths / destination ports: 284 / 22
 -------------------------------------------------------------------------
-Delay:               5.123ns (Levels of Logic = 3)
-  Source:            HH/numOfStuInDigital_3 (FF)
-  Destination:       HH/restrictionWarnDigital (FF)
-  Source Clock:      clk rising
-  Destination Clock: clk rising
+Delay:               5.548ns (Levels of Logic = 4)
+  Source:            HH/numOfStuInDigital_5 (FF)
+  Destination:       HH/numOfStuInDigital_5 (FF)
+  Source Clock:      clk1 rising
+  Destination Clock: clk1 rising
 
-  Data Path: HH/numOfStuInDigital_3 to HH/restrictionWarnDigital
+  Data Path: HH/numOfStuInDigital_5 to HH/numOfStuInDigital_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             15   0.514   1.016  HH/numOfStuInDigital_3 (HH/numOfStuInDigital_3)
-     LUT3:I0->O            4   0.612   0.502  HH/unlockDigital_cmp_lt00001_SW0 (N10)
-     LUT4_L:I3->LO         1   0.612   0.103  HH/unlockDigital_cmp_lt00001 (HH/unlockDigital_cmp_lt0000)
-     LUT4:I3->O            1   0.612   0.357  HH/restrictionWarnDigital_or00001 (HH/restrictionWarnDigital_or0000)
-     FDR:R                     0.795          HH/restrictionWarnDigital
+     FDE:C->Q             14   0.514   1.002  HH/numOfStuInDigital_5 (HH/numOfStuInDigital_5)
+     LUT3_D:I0->O          1   0.612   0.360  HH/_old_isFullDigital_3_SW0 (N14)
+     LUT4:I3->O            3   0.612   0.454  HH/unlockDigital_mux00001_SW0 (N16)
+     LUT4_D:I3->O          4   0.612   0.502  HH/numOfStuInDigital_mux0000<1>58_SW0 (N122)
+     LUT4:I3->O            1   0.612   0.000  HH/numOfStuInDigital_mux0000<2> (HH/numOfStuInDigital_mux0000<2>)
+     FDE:D                     0.268          HH/numOfStuInDigital_2
     ----------------------------------------
-    Total                      5.123ns (3.145ns logic, 1.978ns route)
-                                       (61.4% logic, 38.6% route)
+    Total                      5.548ns (3.230ns logic, 2.318ns route)
+                                       (58.2% logic, 41.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 894 / 29
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk1'
+  Total number of paths / destination ports: 236 / 29
 -------------------------------------------------------------------------
-Offset:              6.962ns (Levels of Logic = 6)
-  Source:            sw<1> (PAD)
-  Destination:       HH/numOfStuInDigital_5 (FF)
-  Destination Clock: clk rising
+Offset:              6.821ns (Levels of Logic = 6)
+  Source:            sw<2> (PAD)
+  Destination:       HH/numOfStuInMera_5 (FF)
+  Destination Clock: clk1 rising
 
-  Data Path: sw<1> to HH/numOfStuInDigital_5
+  Data Path: sw<2> to HH/numOfStuInMera_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            19   1.106   1.074  sw_1_IBUF (sw_1_IBUF)
-     LUT2:I0->O           14   0.612   1.002  HH/unlockDigital_cmp_eq00001 (HH/unlockDigital_cmp_eq0000)
-     LUT4:I0->O            1   0.612   0.000  HH/Maddsub_numOfStuInDigital_share0000_cy<3>1_G (N135)
-     MUXF5:I1->O           1   0.278   0.360  HH/Maddsub_numOfStuInDigital_share0000_cy<3>1 (HH/Maddsub_numOfStuInDigital_share0000_cy<3>)
-     LUT4:I3->O            1   0.612   0.426  HH/numOfStuInDigital_mux0000<5>_SW0 (N62)
-     LUT4:I1->O            1   0.612   0.000  HH/numOfStuInDigital_mux0000<5> (HH/numOfStuInDigital_mux0000<5>)
-     FDE:D                     0.268          HH/numOfStuInDigital_5
+     IBUF:I->O            26   1.106   1.140  sw_2_IBUF (sw_2_IBUF)
+     LUT2:I1->O           12   0.612   0.969  HH/unlockDigital_cmp_eq00001 (HH/unlockDigital_cmp_eq0000)
+     LUT4:I0->O            1   0.612   0.000  HH/Maddsub_numOfStuInMera_share0000_cy<3>1_G (N213)
+     MUXF5:I1->O           1   0.278   0.360  HH/Maddsub_numOfStuInMera_share0000_cy<3>1 (HH/Maddsub_numOfStuInMera_share0000_cy<3>)
+     LUT4_L:I3->LO         1   0.612   0.252  HH/numOfStuInMera_mux0000<5>_SW0 (N90)
+     LUT4:I0->O            1   0.612   0.000  HH/numOfStuInMera_mux0000<5> (HH/numOfStuInMera_mux0000<5>)
+     FDE:D                     0.268          HH/numOfStuInMera_5
     ----------------------------------------
-    Total                      6.962ns (4.100ns logic, 2.862ns route)
-                                       (58.9% logic, 41.1% route)
+    Total                      6.821ns (4.100ns logic, 2.721ns route)
+                                       (60.1% logic, 39.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'mclk'
@@ -518,42 +521,42 @@ Offset:              8.444ns (Levels of Logic = 5)
                                        (68.7% logic, 31.3% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1033 / 11
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk1'
+  Total number of paths / destination ports: 1037 / 15
 -------------------------------------------------------------------------
-Offset:              9.929ns (Levels of Logic = 7)
+Offset:              9.987ns (Levels of Logic = 7)
   Source:            HH/numOfStuInMera_3 (FF)
   Destination:       seg<6> (PAD)
-  Source Clock:      clk rising
+  Source Clock:      clk1 rising
 
   Data Path: HH/numOfStuInMera_3 to seg<6>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             16   0.514   1.031  HH/numOfStuInMera_3 (HH/numOfStuInMera_3)
-     LUT4:I0->O            1   0.612   0.426  old_tmp_digit_2_mux0001<1>_SW1 (N29)
+     FDE:C->Q             20   0.514   1.089  HH/numOfStuInMera_3 (HH/numOfStuInMera_3)
+     LUT4:I0->O            1   0.612   0.426  old_tmp_digit_2_mux0001<1>_SW1 (N59)
      LUT4:I1->O            1   0.612   0.426  old_tmp_digit_2_mux0001<1> (old_tmp_digit_2_mux0001<1>)
      LUT3:I1->O            1   0.612   0.000  Mmux__old_tmp_digit_2_31 (Mmux__old_tmp_digit_2_31)
      MUXF5:I1->O          14   0.278   1.002  Mmux__old_tmp_digit_2_2_f5_0 (_old_tmp_digit_2<1>)
-     LUT4:I0->O            1   0.612   0.000  seg<4>1 (seg<4>1)
-     MUXF5:I1->O           1   0.278   0.357  seg<4>_f5 (seg_4_OBUF)
-     OBUF:I->O                 3.169          seg_4_OBUF (seg<4>)
+     LUT4:I0->O            1   0.612   0.000  seg<2>2 (seg<2>2)
+     MUXF5:I0->O           1   0.278   0.357  seg<2>_f5 (seg_2_OBUF)
+     OBUF:I->O                 3.169          seg_2_OBUF (seg<2>)
     ----------------------------------------
-    Total                      9.929ns (6.687ns logic, 3.242ns route)
-                                       (67.3% logic, 32.7% route)
+    Total                      9.987ns (6.687ns logic, 3.300ns route)
+                                       (67.0% logic, 33.0% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 2.00 secs
-Total CPU time to Xst completion: 2.09 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 2.22 secs
  
 --> 
 
 
-Total memory usage is 331964 kilobytes
+Total memory usage is 332224 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   24 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   20 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 
