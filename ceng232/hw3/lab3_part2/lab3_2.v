@@ -37,6 +37,10 @@ module lab3_2(
 		unlockMera = 0;
 		restrictionWarnDigital = 0;
 		restrictionWarnMera = 0;
+		isEmptyDigital = numOfStuInDigital == 0;
+		isFullDigital = numOfStuInDigital == 30;
+		isEmptyMera = numOfStuInMera == 0;
+		isFullMera = numOfStuInMera == 30;
 		case (lab)
 			0: begin
 				case (mode)
