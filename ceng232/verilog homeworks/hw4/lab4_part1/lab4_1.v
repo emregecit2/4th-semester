@@ -49,22 +49,27 @@ module lab4RAM (
 	endcase
 	always@(posedge CLK) begin
 		if (ramMode == 1)
+			ramVal = 0;
 			case (ramOp)
 				0 : begin
-					ramVal = 0;
 					for (i=0; i<=4; i=i+1) begin
-						ramVal = ramVal + ramInput[i] * argVal**i;
+						ramVal = ramVal + (ramInput[i]?-1:1) * argVal**i;
 					end
 				end
 				1 : begin
-					ramVal = 0;
-					for (i=0; i<=3; i=i+1) begin
-						ramVal = ramVal + ramInput[i] * (i + 1) * argVal**i;
+					for (i=1; i<=4; i=i+1) begin
+						ramVal = ramVal + (ramInput[i]?-1:1) * i * argVal**i;
 					end
 				end
 			endcase
+			if (ramVal >= 0)
+				ramData[ramAddr] = ramVal;
+			else begin
+				ramData[ramAddr] = -ramVal;
+				ramData[ramAddr][8] = 1;
+			end
 	end
-	always@(ramMode) if (ramMode==0) ramOutput = ramVal;
+	always@(ramMode) if (ramMode==0) ramOutput = ramData[ramAddr];
 endmodule
 
 

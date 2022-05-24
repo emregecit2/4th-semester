@@ -1,5 +1,0 @@
-set -tmpdir "/home/bs2020/e2521581/Desktop/emregecit2@github/4th-semester/ceng232/hw3/lab3_part2/xst/projnav.tmp"
-set -xsthdpdir "/home/bs2020/e2521581/Desktop/emregecit2@github/4th-semester/ceng232/hw3/lab3_part2/xst"
-elaborate
--ifn lab3_2.prj
--ifmt mixed
