@@ -57,8 +57,8 @@ module lab4RAM (
 					end
 				end
 				1 : begin
-					for (i=1; i<=4; i=i+1) begin
-						ramVal = ramVal + (ramInput[i]?-1:1) * i * argVal**i;
+					for (i=0; i<=3; i=i+1) begin
+						ramVal = ramVal + (ramInput[i + 1]?-1:1) * (i + 1) * argVal**i;
 					end
 				end
 			endcase
