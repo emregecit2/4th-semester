@@ -20,7 +20,8 @@ module lab4_2(// INPUTS
     reg[9:0] current_result;
     reg[2:0]instruction_cache[0:31];
     reg[4:0]value_cache[0:31];
-    reg[4:0] cache_size, cache_index, i, count, v, temp;
+    reg[4:0] cache_size, cache_index, i, count, v;
+    integer temp;
     initial begin
         cache_size = 0;
         cache_index = 0;
