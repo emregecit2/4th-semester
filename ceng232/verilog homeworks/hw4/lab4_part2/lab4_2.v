@@ -56,53 +56,55 @@ module lab4_2(// INPUTS
                                 instruction_cache[cache_size] = opCode;
                                 value_cache[cache_size] = value;
                                 cache_size = cache_size + 1;
+                                cacheFull = cache_size == 32;
                             end
                         end
                     endcase
                 end
                 1: begin
-                    current_result = result;
-                    case (instruction_cache[cache_index])
-                        3'b000: begin 
-                            temp = result + value_cache[cache_index];
-                            if (temp > 2**10 - 1) overflow = 1;
-                            else overflow = 0;
-                            result = temp;
-                        end
-                        3'b001: begin
-                            temp = result + previous_result + value_cache[cache_index];
-                            if (temp > 2**10 - 1) overflow = 1;
-                            else overflow = 0;
-                            result = temp;
-                        end
-                        3'b010: begin
-                            temp = result * previous_result + value_cache[cache_index];
-                            if (temp > 2**10 - 1) overflow = 1;
-                            else overflow = 0;
-                            result = temp;
-                        end
-                        3'b100: begin // POPC
-                            count = 0;
-                            i = 0;
-                            for (i = 0; i <= 9; i = i + 1) count = count + result[i];
-                            result = count;
-                            overflow = 0;
-                        end
-                        3'b101: begin
-                            result = ~result;
-                            overflow = 0;
-                        end
-                        3'b110: begin
-                            v = value_cache[cache_index];
-                            overflow = 0;
-                        end
-                    endcase
-                    cache_index = cache_index + 1;
-                    if (cache_index == cache_size) cache_index = v;
-                    previous_result = current_result;
+                    if (cache_size) begin
+                        current_result = result;
+                        case (instruction_cache[cache_index])
+                            3'b000: begin 
+                                temp = result + value_cache[cache_index];
+                                if (temp > 2**10 - 1) overflow = 1;
+                                else overflow = 0;
+                                result = temp;
+                            end
+                            3'b001: begin
+                                temp = result + previous_result + value_cache[cache_index];
+                                if (temp > 2**10 - 1) overflow = 1;
+                                else overflow = 0;
+                                result = temp;
+                            end
+                            3'b010: begin
+                                temp = result * previous_result + value_cache[cache_index];
+                                if (temp > 2**10 - 1) overflow = 1;
+                                else overflow = 0;
+                                result = temp;
+                            end
+                            3'b100: begin // POPC
+                                count = 0;
+                                i = 0;
+                                for (i = 0; i <= 9; i = i + 1) count = count + result[i];
+                                result = count;
+                                overflow = 0;
+                            end
+                            3'b101: begin
+                                result = ~result;
+                                overflow = 0;
+                            end
+                            3'b110: begin
+                                v = value_cache[cache_index];
+                                overflow = 0;
+                            end
+                        endcase
+                        cache_index = cache_index + 1;
+                        if (cache_index == cache_size) cache_index = v;
+                        previous_result = current_result;
+                    end
                 end
             endcase
-            cacheFull = cache_size == 32;
         end
     end
 endmodule
