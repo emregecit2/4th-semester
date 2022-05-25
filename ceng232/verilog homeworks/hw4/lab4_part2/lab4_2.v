@@ -45,7 +45,6 @@ module lab4_2(// INPUTS
             cacheFull = 0;
         end
         else begin
-            cacheFull = 0;
             invalidOp = 0;
             case (mode)
                 0: begin
