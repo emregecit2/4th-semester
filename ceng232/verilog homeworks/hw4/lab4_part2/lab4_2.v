@@ -56,7 +56,7 @@ module lab4_2(// INPUTS
                                 instruction_cache[cache_size] = opCode;
                                 value_cache[cache_size] = value;
                                 cache_size = cache_size + 1;
-                                cacheFull = cache_size == 32;
+                                cacheFull = 1;
                             end
                         end
                     endcase
