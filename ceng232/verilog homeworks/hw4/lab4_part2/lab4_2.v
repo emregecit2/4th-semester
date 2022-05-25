@@ -38,7 +38,7 @@ module lab4_2(// INPUTS
             cache_size = 0;
             cache_index = 0;
             previous_result = 0;
-            current_result = 0;
+            result = 0;
             invalidOp = 0;
             overflow = 0;
             cacheFull = 0;
