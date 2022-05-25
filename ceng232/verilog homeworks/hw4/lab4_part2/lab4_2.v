@@ -20,7 +20,7 @@ module lab4_2(// INPUTS
     reg[9:0] current_result;
     reg[2:0]instruction_cache[0:31];
     reg[4:0]value_cache[0:31];
-    reg[4:0] cache_size, cache_index, i, count, v;
+    reg[5:0] cache_size, cache_index, i, count, v;
     integer temp;
     initial begin
         cache_size = 0;
@@ -56,7 +56,7 @@ module lab4_2(// INPUTS
                                 instruction_cache[cache_size] = opCode;
                                 value_cache[cache_size] = value;
                                 cache_size = cache_size + 1;
-                                cacheFull = 1;
+                                cacheFull = cache_size == 32;
                             end
                         end
                     endcase
