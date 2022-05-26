@@ -52,8 +52,8 @@ module lab4_2(// INPUTS
                         3'b011: invalidOp = 1;
                         3'b111: invalidOp = 1;
                         default: begin
-                            if (cache_size == 32) cacheFull = 1;
-                            else begin
+                            cacheFull = cache_size == 32;
+                            if !cacheFull begin
                                 instruction_cache[cache_size] = opCode;
                                 value_cache[cache_size] = value;
                                 cache_size = cache_size + 1;
