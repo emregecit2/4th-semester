@@ -8,6 +8,9 @@
 <!-- Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/bs2020/e2521581/Github/4th-semester/ceng232/verilog homeworks/hw4/lab4_part2/Board232.v\&quot; into library work</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/bs2020/e2521581/Github/4th-semester/ceng232/verilog homeworks/hw4/lab4_part2/lab4_2.v\&quot; into library work</arg>
 </msg>
 
