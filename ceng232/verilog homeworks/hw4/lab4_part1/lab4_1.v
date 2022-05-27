@@ -35,7 +35,7 @@ module lab4RAM (
 	integer i;
 	integer argVal;
 	integer ramVal;
-	reg [8:0]ramData[16:0];
+	reg [8:0]ramData[15:0];
 	initial begin
 		for (i=0; i<=15; i=i+1) begin
 			ramData[i] = 9'b000000000;
