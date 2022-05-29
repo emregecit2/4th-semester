@@ -35,10 +35,10 @@ Student::Student(const Student &student)
    upgrade = student.upgrade;
    credits = student.credits;
    points = student.points;
-   for (size_t i = 0; i < courses.size(); i++)
-      delete courses[i];
-   for (size_t i = 0; i < student.courses.size(); i++)
-      courses.push_back(new CourseInstance(*student.courses[i]));
+   for (auto course : student.courses)
+      delete course;
+   for (auto course : student.courses)
+      courses.push_back(new CourseInstance(*course, *this));
 }
 
 /* This method returns the id of the student.
@@ -54,7 +54,7 @@ float Student::getGPA() const
 {
    if (credits == 0)
       return 0.0;
-   return points / credits;
+   return (float) points / credits;
 }
 
 /* This method returns the courses taken by
@@ -64,6 +64,11 @@ float Student::getGPA() const
 */
 vector<const CourseInstance *> Student::listCourses() const
 {
+   vector<const CourseInstance *> courses;
+   for (auto course : this->courses)
+   {
+      courses.push_back(course);
+   }
    return courses;
 }
 
@@ -85,7 +90,13 @@ vector<const CourseInstance *> Student::listCourses() const
 void Student::gradeCourse(const OpenCourse &openCourse)
 {
    credits++;
-   points += learnGrade(openCourse.getName(), id);
+   for (auto course : courses)
+      if (course == &openCourse)
+      {
+         course->setGrade(learnGrade(course->getName(), id));
+         points += course->getGrade();
+         return;
+      }
 }
 /* This method sets the upgrade information for the current
    student to true. You may not need this method, yet still
@@ -138,13 +149,13 @@ bool Freshman::addCourse(const OpenCourse &opencourse)
    {
       for (auto course : courses)
       {
-         if (*course == *prereq)
+         if (course == prereq)
          {
             goto exit;
          }
       }
       return false;
-   exit:;
+      exit:;
    }
 
    courses.push_back(new CourseInstance(opencourse, *this));

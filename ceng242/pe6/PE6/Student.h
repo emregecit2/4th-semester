@@ -17,10 +17,10 @@ protected:
 	unsigned int id;
 	string fullname;
 	string department;
-	vector<const CourseInstance *> courses;
+	vector<CourseInstance *> courses;
 	bool upgrade = false;
 	unsigned int credits = 0;
-	float points = 0;
+	unsigned int points = 0;
 	// You can add your own variables/methods here.
 
 public:

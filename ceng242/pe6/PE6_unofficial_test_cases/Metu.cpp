@@ -159,12 +159,11 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
 Sophomore *Metu::upgradeStudent(Freshman &student)
 {
    Sophomore *sophomore = new Sophomore(student);
-   for (auto it: students)
+   for (size_t i = 0; i < students.size(); i++)
    {
-      if (it == &student)
+      if (students[i] == &student)
       {
-         it = sophomore;
-         break;
+         students[i] = sophomore;
       }
    }
    delete &student;
@@ -188,12 +187,11 @@ Sophomore *Metu::upgradeStudent(Freshman &student)
 Junior *Metu::upgradeStudent(Sophomore &student)
 {
    Junior *junior = new Junior(student);
-   for (auto it: students)
+   for (size_t i = 0; i < students.size(); i++)
    {
-      if (it == &student)
+      if (students[i] == &student)
       {
-         it = junior;
-         break;
+         students[i] = junior;
       }
    }
    delete &student;
@@ -217,12 +215,11 @@ Junior *Metu::upgradeStudent(Sophomore &student)
 Senior *Metu::upgradeStudent(Junior &student)
 {
    Senior *senior = new Senior(student);
-   for (auto it: students)
+   for (size_t i = 0; i < students.size(); i++)
    {
-      if (it == &student)
+      if (students[i] == &student)
       {
-         it = senior;
-         break;
+         students[i] = senior;
       }
    }
    delete &student;
