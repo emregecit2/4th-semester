@@ -35,11 +35,11 @@ Student::Student(const Student &student)
    upgrade = student.upgrade;
    credits = student.credits;
    points = student.points;
-   for (auto course : student.courses)
+   for (auto course : courses)
       delete course;
-   courses.resize(student.courses.size());
+   courses = student.courses;
    for (size_t i=0; i<courses.size(); i++)
-      courses[i] = new CourseInstance(*student.courses[i]);
+      courses[i] = new CourseInstance(*courses[i]);
 }
 
 /* This method returns the id of the student.
