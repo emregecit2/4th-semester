@@ -22,6 +22,10 @@ Metu::~Metu()
       delete opencourse;
    for (auto student : students)
       delete student;
+   for (auto node : graph)
+      delete[] node;
+   for (auto coordinate : coordinates)
+      delete[] coordinate;
 }
 
 /* This method returns the student whose id is given
@@ -229,9 +233,32 @@ void Metu::setClassroomSize(int row_size, int column_size)
    location of the student whose id given in the second argument
    is <row_id, column_id + 1>.
 */
+
+enum Direction
+{
+   North = 0,
+   East = 1,
+   South = 2,
+   West = 3
+};
+
 void Metu::addCheatInfo(int from_student_id, int to_student_id, string dir)
 {
-   // TODO
+   if (graph[from_student_id] == NULL)
+      graph[from_student_id] = new int[4]{-1, -1, -1, -1};
+   if (graph[to_student_id] == NULL)
+      graph[to_student_id] = new int[4]{-1, -1, -1, -1};
+
+   if (dir == "|")
+   {
+      graph[from_student_id][South] = to_student_id;
+      graph[to_student_id][North] = from_student_id;
+   }
+   else if (dir == "-")
+   {
+      graph[from_student_id][East] = to_student_id;
+      graph[to_student_id][West] = from_student_id;
+   }
 }
 
 /* This method prints the given seating plan, in
@@ -244,7 +271,93 @@ void Metu::addCheatInfo(int from_student_id, int to_student_id, string dir)
    For non-empty seats, print the id of the student
    sitting there.
 */
+
+void Metu::dfs(int start_index)
+{
+   for (int *neighbor = graph[start_index], direction = North; direction <= West; direction++, neighbor++)
+   {
+      if (*neighbor == -1) continue;
+      if (coordinates[*neighbor] == NULL) // if not visited
+      {
+         coordinates[*neighbor] = new int[2];
+         switch (direction)
+         {
+         case North:
+            coordinates[*neighbor][0] = coordinates[start_index][0] - 1;
+            coordinates[*neighbor][1] = coordinates[start_index][1];
+            break;
+         case East:
+            coordinates[*neighbor][0] = coordinates[start_index][0];
+            coordinates[*neighbor][1] = coordinates[start_index][1] + 1;
+            break;
+         case South:
+            coordinates[*neighbor][0] = coordinates[start_index][0] + 1;
+            coordinates[*neighbor][1] = coordinates[start_index][1];
+            break;
+         case West:
+            coordinates[*neighbor][0] = coordinates[start_index][0];
+            coordinates[*neighbor][1] = coordinates[start_index][1] - 1;
+            break;
+         }
+         dfs(*neighbor);
+      }
+   }
+}
+
 void Metu::printSeatingPlan()
 {
-   // TODO
+   int start = 0;
+   for (; graph[start] == NULL; start++)
+      ;
+   coordinates[start] = new int[2]{0, 0};
+   dfs(start);
+
+   // find leftmost
+   int min_row = 0, min_column = 0;
+   for (int i = 0; i < students.size(); i++)
+   {
+      if (coordinates[i] != NULL)
+      {
+         if (coordinates[i][0] < min_row)
+            min_row = coordinates[i][0];
+         if (coordinates[i][1] < min_column)
+            min_column = coordinates[i][1];
+      }
+   }
+
+   // adjust coordinates
+   for (int i=0; i<GRAPH_SIZE; i++){
+      if (coordinates[i] != NULL){
+         coordinates[i][0] -= min_row;
+         coordinates[i][1] -= min_column;
+      }
+   }
+
+   // construct seating plan
+   string **seating_plan = new string*[row_size];
+   for (int i=0; i<row_size; i++){
+      seating_plan[i] = new string[column_size];
+      for (int j=0; j<column_size; j++){
+         seating_plan[i][j] = "X";
+      }
+   }
+   for (int i=0; i<GRAPH_SIZE; i++){
+      if (coordinates[i] != NULL){
+         seating_plan[coordinates[i][0]][coordinates[i][1]] = to_string(i);
+      }
+   }
+
+   // print seating plan
+   for (int i=0; i<row_size; i++){
+      for (int j=0; j<column_size; j++){
+         cout << seating_plan[i][j] << " ";
+      }
+      cout << endl;
+   }
+
+   // free memory
+   for (int i=0; i<row_size; i++){
+      delete [] seating_plan[i];
+   }
+   delete [] seating_plan;
 }

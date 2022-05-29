@@ -5,6 +5,8 @@
 #include "Course.h"
 #include "Student.h"
 
+#define GRAPH_SIZE 10000000
+
 //////////////////////////////////////////////////////
 //    DO NOT CHANGE *PUBLIC PARTS* IN THIS FILE!    //
 //////////////////////////////////////////////////////
@@ -20,6 +22,9 @@ private:
 	vector<const OpenCourse*> opencourses;
 	int row_size;
 	int column_size;
+	int *graph[GRAPH_SIZE] = {} ;
+	int *coordinates[GRAPH_SIZE] = {};
+	void dfs(int);
 
 public:
 

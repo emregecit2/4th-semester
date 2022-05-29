@@ -14,7 +14,7 @@
    false. This may be needed in the other methods
    later on.
 */
-Student::Student(int _id, string _fullname, string _department) : id(_id), fullname(_fullname), department(_department), upgrade(false), credits(0), points(0) {}
+Student::Student(int _id, string _fullname, string _department) : id(_id), fullname(_fullname), department(_department){}
 
 /* Destructor  : It is responsible of the destruction of
    the CourseInstance objects owned by the current student.
@@ -34,9 +34,9 @@ Student::Student(const Student &student)
    upgrade = student.upgrade;
    credits = student.credits;
    points = student.points;
-   for (auto i = 0; i < courses.size(); i++)
+   for (size_t i = 0; i < courses.size(); i++)
       delete courses[i];
-   for (auto i = 0; i < student.courses.size(); i++)
+   for (size_t i = 0; i < student.courses.size(); i++)
       courses.push_back(new CourseInstance(*student.courses[i]));
 }
 
@@ -164,7 +164,7 @@ bool Freshman::addCourse(const OpenCourse &opencourse)
    INTERNSHIP-1 and INTERNSHIP-2. Constructor should
    initialize those variables to false.
 */
-Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, fullname, department), internship1(false), internship2(false) {}
+Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, fullname, department){}
 
 /* Constructor : initializes the derived members of the
    Freshman class with the one given as first parameter.
@@ -173,7 +173,7 @@ Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, 
    INTERNSHIP-1 and INTERNSHIP-2. Constructor should
    initialize those variables to false.
  */
-Sophomore::Sophomore(const Freshman &freshman) : Freshman(freshman), internship1(false), internship2(false) {}
+Sophomore::Sophomore(const Freshman &freshman) : Freshman(freshman){}
 
 /* Destructor  : It is responsible of the destruction of
    the CourseInstance objects owned by the current sophomore.
