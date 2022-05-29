@@ -3,7 +3,7 @@
 
 // YOU CAN COMPLETELY CHANGE THIS FILE AS YOU NEED. //
 
-vector<vector<Student *>> OpenCourse::students;
+vector<vector<Student *>> OpenCourse::opencourses;
 
 /****************************************************/
 /****               *** COURSE ***               ****/
@@ -72,7 +72,9 @@ bool Course::operator==(const Course &rhs) const
    quota is the upper limit for the number of OpenCourse::students
    who takes the course.
 */
-OpenCourse::OpenCourse(const Course &course, string term, int course_index, int quota) : Course(course), term(term), course_index(course_index), quota(quota) {}
+OpenCourse::OpenCourse(const Course &course, string term, int course_index, int quota) : Course(course), term(term), course_index(course_index), quota(quota) {
+   opencourses.push_back(vector<Student *>());
+}
 
 /* Destructor  : It is NOT responsible of the
    destruction of the prerequisite courses and OpenCourse::students
@@ -93,7 +95,7 @@ OpenCourse::OpenCourse(const OpenCourse &opencourse) : Course(opencourse), term(
 const vector<int> OpenCourse::showStudentList() const
 {
    vector<int> ids;
-   for (auto student : students[course_index])
+   for (auto student : opencourses[course_index])
    {
       ids.push_back(student->getId());
    }
@@ -109,7 +111,7 @@ const vector<int> OpenCourse::showStudentList() const
 */
 void OpenCourse::finalize()
 {
-   for (auto student: students[course_index])
+   for (auto student : opencourses[course_index])
    {
       student->gradeCourse(*this);
    }
@@ -132,7 +134,7 @@ void OpenCourse::finalize()
    this CourseInstance to Grade::NA.
 */
 CourseInstance::CourseInstance(const OpenCourse &opencourse, Student &student) : OpenCourse(opencourse), student(student), grade(Grade::NA) {
-   
+   opencourses[course_index].push_back(&student);
 }
 
 /* Destructor  : It is NOT responsible of the

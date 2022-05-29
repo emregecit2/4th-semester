@@ -86,7 +86,6 @@ module lab4_2(// INPUTS
                             end
                             3'b100: begin // POPC
                                 count = 0;
-                                i = 0;
                                 for (i = 0; i <= 9; i = i + 1) count = count + result[i];
                                 result = count;
                                 overflow = 0;

@@ -138,7 +138,6 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
          num_students++;
       }
    }
-   OpenCourse::students.push_back(students);
    return *opencourse;
 }
 

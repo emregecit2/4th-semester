@@ -54,8 +54,8 @@ protected:
 	string term;
 	unsigned int course_index;
 	unsigned int quota;
-	static vector<vector<Student*>> students;
-	friend class Metu;
+	static vector<vector<Student*>> opencourses;
+
 	// You can add your own variables/methods here.
 public:
 
