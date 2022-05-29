@@ -37,8 +37,9 @@ Student::Student(const Student &student)
    points = student.points;
    for (auto course : student.courses)
       delete course;
-   for (auto course : student.courses)
-      courses.push_back(new CourseInstance(*course, *this));
+   courses.resize(student.courses.size());
+   for (size_t i=0; i<courses.size(); i++)
+      courses[i] = new CourseInstance(*student.courses[i]);
 }
 
 /* This method returns the id of the student.
@@ -91,7 +92,7 @@ void Student::gradeCourse(const OpenCourse &openCourse)
 {
    credits++;
    for (auto course : courses)
-      if (course == &openCourse)
+      if (*course == openCourse)
       {
          course->setGrade(learnGrade(course->getName(), id));
          points += course->getGrade();
@@ -149,7 +150,7 @@ bool Freshman::addCourse(const OpenCourse &opencourse)
    {
       for (auto course : courses)
       {
-         if (course == prereq)
+         if (*course == *prereq)
          {
             goto exit;
          }
