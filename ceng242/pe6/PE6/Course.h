@@ -31,7 +31,7 @@ enum Grade {
 class Course {
 protected:
 	string name;
-	vector<const Course *> prerequisities;
+	vector<const Course *> prereqs;
 
 public:
 
@@ -47,7 +47,6 @@ public:
 
 };
 
-
 /****************************************************/
 /****             *** OPEN COURSE ***            ****/
 class OpenCourse : public Course {
@@ -55,7 +54,8 @@ protected:
 	string term;
 	unsigned int course_index;
 	unsigned int quota;
-	vector<Student*> students;
+	static vector<vector<Student*>> students;
+	friend class Metu;
 	// You can add your own variables/methods here.
 public:
 

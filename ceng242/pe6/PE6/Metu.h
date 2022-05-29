@@ -18,7 +18,7 @@ class Metu {
 
 private:
 	vector<Student*> students;
-	vector<const Course*> courses;
+	vector<const Course*> courses_;
 	vector<const OpenCourse*> opencourses;
 	int row_size;
 	int column_size;

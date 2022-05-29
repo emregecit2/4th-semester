@@ -16,7 +16,7 @@ Metu::Metu() {}
 */
 Metu::~Metu()
 {
-   for (auto course : courses)
+   for (auto course : courses_)
       delete course;
    for (auto opencourse : opencourses)
       delete opencourse;
@@ -55,7 +55,7 @@ void Metu::registerStudent(Student *student)
 */
 void Metu::registerCourse(const Course &course)
 {
-   courses.push_back(&course);
+   courses_.push_back(&course);
 }
 
 /* This method constructs a new OpenCourse object by deriving
@@ -82,11 +82,14 @@ void Metu::registerCourse(const Course &course)
    you with "virtual" keyword in this PE. We've left it
    to next PE.
 */
+
 OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
                              vector<Freshman *> freshmans, vector<Sophomore *> sophomores, vector<Junior *> juniors, vector<Senior *> seniors)
 {
-   OpenCourse *opencourse = new OpenCourse(course, term, 0, quota);
+   unsigned int course_index = opencourses.size();
+   OpenCourse *opencourse = new OpenCourse(course, term, opencourses.size(), quota);
    opencourses.push_back(opencourse);
+   vector<Student *> students;
    int num_students = 0;
    for (auto senior : seniors)
    {
@@ -94,8 +97,11 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
       {
          return *opencourse;
       }
-      senior->addCourse(*opencourse);
-      num_students++;
+      if(senior->addCourse(*opencourse))
+      {
+         students.push_back(senior);
+         num_students++;
+      }
    }
    for (auto junior : juniors)
    {
@@ -103,8 +109,11 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
       {
          return *opencourse;
       }
-      junior->addCourse(*opencourse);
-      num_students++;
+      if (junior->addCourse(*opencourse))
+      {
+         students.push_back(junior);
+         num_students++;
+      }
    }
    for (auto sophomore : sophomores)
    {
@@ -112,8 +121,11 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
       {
          return *opencourse;
       }
-      sophomore->addCourse(*opencourse);
-      num_students++;
+      if (sophomore->addCourse(*opencourse))
+      {
+         students.push_back(sophomore);
+         num_students++;
+      }
    }
    for (auto freshman : freshmans)
    {
@@ -121,9 +133,13 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
       {
          return *opencourse;
       }
-      freshman->addCourse(*opencourse);
-      num_students++;
+      if (freshman->addCourse(*opencourse))
+      {
+         students.push_back(freshman);
+         num_students++;
+      }
    }
+   OpenCourse::students.push_back(students);
    return *opencourse;
 }
 
@@ -314,7 +330,7 @@ void Metu::printSeatingPlan()
 
    // find leftmost
    int min_row = 0, min_column = 0;
-   for (int i = 0; i < students.size(); i++)
+   for (size_t i = 0; i < students.size(); i++)
    {
       if (coordinates[i] != NULL)
       {

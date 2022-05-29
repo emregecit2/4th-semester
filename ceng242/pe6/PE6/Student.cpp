@@ -14,14 +14,15 @@
    false. This may be needed in the other methods
    later on.
 */
-Student::Student(int _id, string _fullname, string _department) : id(_id), fullname(_fullname), department(_department){}
+Student::Student(int _id, string _fullname, string _department) : id(_id), fullname(_fullname), department(_department) {}
 
 /* Destructor  : It is responsible of the destruction of
    the CourseInstance objects owned by the current student.
 */
-Student::~Student() {
-   for (auto i = 0; i < courses.size(); i++)
-      delete courses[i];
+Student::~Student()
+{
+   for (auto course : courses)
+      delete course;
 }
 
 /* Copy constructor : It totally applies shallow copy.
@@ -52,8 +53,8 @@ int Student::getId() const
 float Student::getGPA() const
 {
    if (credits == 0)
-      return 100.0;
-   return (float)points / credits;
+      return 0.0;
+   return points / credits;
 }
 
 /* This method returns the courses taken by
@@ -135,15 +136,17 @@ bool Freshman::addCourse(const OpenCourse &opencourse)
    vector<const Course *> prereqs = opencourse.getPrerequisites();
    for (auto prereq : prereqs)
    {
-      for (auto course: courses)
+      for (auto course : courses)
       {
          if (*course == *prereq)
          {
             goto exit;
          }
       }
-      exit:;
+      return false;
+   exit:;
    }
+
    courses.push_back(new CourseInstance(opencourse, *this));
    return true;
 }
@@ -164,7 +167,7 @@ bool Freshman::addCourse(const OpenCourse &opencourse)
    INTERNSHIP-1 and INTERNSHIP-2. Constructor should
    initialize those variables to false.
 */
-Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, fullname, department){}
+Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, fullname, department) {}
 
 /* Constructor : initializes the derived members of the
    Freshman class with the one given as first parameter.
@@ -173,7 +176,7 @@ Sophomore::Sophomore(int id, string fullname, string department) : Freshman(id, 
    INTERNSHIP-1 and INTERNSHIP-2. Constructor should
    initialize those variables to false.
  */
-Sophomore::Sophomore(const Freshman &freshman) : Freshman(freshman){}
+Sophomore::Sophomore(const Freshman &freshman) : Freshman(freshman) {}
 
 /* Destructor  : It is responsible of the destruction of
    the CourseInstance objects owned by the current sophomore.
