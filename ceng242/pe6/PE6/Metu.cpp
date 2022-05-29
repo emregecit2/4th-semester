@@ -94,7 +94,7 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
    {
       if (num_students == quota)
       {
-         return *opencourse;
+         break;
       }
       if(senior->addCourse(*opencourse))
       {
@@ -106,7 +106,7 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
    {
       if (num_students == quota)
       {
-         return *opencourse;
+         break;
       }
       if (junior->addCourse(*opencourse))
       {
@@ -118,7 +118,7 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
    {
       if (num_students == quota)
       {
-         return *opencourse;
+         break;
       }
       if (sophomore->addCourse(*opencourse))
       {
@@ -130,7 +130,7 @@ OpenCourse &Metu::openCourse(const Course &course, string term, int quota,
    {
       if (num_students == quota)
       {
-         return *opencourse;
+         break;
       }
       if (freshman->addCourse(*opencourse))
       {
