@@ -30,13 +30,92 @@ ID : 2521581\\
 \paragraph{a)}
 These are not enough in order to make meaningful comments about the distribution of the data. We also need the standard deviation of the data.
 \paragraph{b)}
-Step 1: Test statistic. We are given $\sigma = 0.8, n = 256, \alpha = 0.05, \mu_0 = 7.5$.
-\paragraph{c)}
-\paragraph{d)}
+We test the null hypothesis $H_0: \mu = 7.5$ against a one-sided left-tail alternative $H_A: \mu < 7.5$, because we are only interested to know if the mean of rating $\mu$ is less than 7.5.
 
+Step 1: Test statistic. We are given $\sigma = 0.8$, $n = 256$, $\alpha = 0.05$, $\mu_0 = 7.5$, and from the sample $\bar{X}=7.4$. The test statistic is
+\[
+    Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} = \frac{7.4 - 7.5}{0.8/\sqrt{256}} = -2.
+\]
+
+Step 2: Acceptance and rejection regions. The critical value is
+\[
+    z_\alpha = z_{0.05} = 1.645.
+\]
+
+With the left-tail alternative, we
+\begin{center}
+    reject $H_0$ if $Z < -1.645$.
+
+    accept $H_0$ if $Z \geq -1.645$.
+\end{center}
+
+Our test statistic $Z = -2$ belongs to the rejection region; therefore, we reject the null hypothesis.
+
+Restaurant A would not be in my list of candidate restaurants to order food from.
+\paragraph{c)}
+$\sigma = 1.0$, $n = 256$, $\alpha = 0.05$, $\mu_0 = 7.5$, $\bar{X}=7.4$
+\[
+    Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} = \frac{7.4 - 7.5}{1.0/\sqrt{256}} = -1.6
+\]
+
+Our test statistic $Z = -1.6$ belongs to the acceptance region; therefore, we accept the null hypothesis.
+
+In this case, restaurant A would be in my list of candidate restaurants.
+\paragraph{d)}
+I will consider placing an order from a restaurant if and only if the rating of that restaurant is not significantly lower than 7.5. There is no need for resorting to a statistical test for values restaurants with a rating greater than or equal to 7.5, a greater rating will always be desired. We should resort statistical tests if the rating is lower than 7.5.
 \section*{Answer 3}
 \paragraph{a)}
-\paragraph{b)}
+We test the null hypothesis $H_0: \mu_A \geq \mu_B + 90$ against one sided left-tail alternative\\$H_A: \mu_A < \mu_B + 90$.
 
+Since the variances are equal, we can use the pooled sample variance formula.
+\[
+    s_p^2 = \dfrac{(n-1)s_X^2 + (m-1)s_Y^2}{n+m-2} = \dfrac{19\cdot27.04 + 31\cdot519.84}{50} = 332.576
+\]
+
+\[
+    s_p \simeq 18.237
+\]
+
+Test statistic t
+\[
+    t = \frac{\bar{X} - \bar{Y} - D}{s_p\sqrt{\dfrac{1}{n}+\dfrac{1}{m}}} = \frac{211 - 133 - 90}{18.237\sqrt{\dfrac{1}{20}+\dfrac{1}{32}}} \simeq -2.31
+\]
+
+$t_\alpha = t_{0.01} = 2.403$ ($n + m - 2 = 50$ degrees of freedom)
+
+Since the alternative hypothesis is left-tailed
+\begin{center}
+    reject $H_0$ if $t < -2.403$.
+
+    accept $H_0$ if $t \geq -2.403$.
+\end{center}
+
+Our test statistic $t = -2.31$ is greater than the critical value $-t_\alpha = -2.403$; therefore, we accept the null hypothesis.
+
+The researcher can claim that the computer B provides a 90-minute or better improvement.
+\paragraph{b)} Use the same hypotheses from part a.
+
+Test statistic t
+\[
+    t = \frac{\bar{X} - \bar{Y} - D}{\sqrt{\dfrac{s_X^2}{n}+\dfrac{s_Y^2}{m}}} = \frac{211 - 133 - 90}{\sqrt{\dfrac{27.04}{20}+\dfrac{519.84}{32}}} \simeq -2.86
+\]
+
+Degrees of freedom v (Satterthwaite's approximation)
+\[
+    v = \dfrac{(\dfrac{s^2_X}{n}+\dfrac{s^2_Y}{m})^2}{\dfrac{s^4_X}{n^2(n-1)}+\dfrac{s^4_Y}{m^2(m-1)}} = \dfrac{(\dfrac{27.04}{20}+\dfrac{519.84}{32})^2}{\dfrac{731.1616}{400\cdot19}+\dfrac{270233.6256}{1024\cdot31}} \simeq 36
+\]
+\newpage
+$t_{0.01} = 2.434$ (36 degrees of freedom)
+
+Since the hypothesis is left-tailed
+\begin{center}
+    reject $H_0$ if $t < -2.434$.
+
+    accept $H_0$ if $t \geq -2.434$.
+\end{center}
+
+Our test statistic $t = -2.86$ is less than the critical value $-t_{0.01} = -2.434$; therefore, we reject the null hypothesis.
+
+In this case, the researcher cannot claim that the computer B provides a 90-minute or better improvement.
 \end{document}
 
