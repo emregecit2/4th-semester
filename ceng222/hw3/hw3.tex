@@ -22,10 +22,38 @@ Name : Emre Geçit\\
 ID : 2521581\\
 
 
+
 \section*{Answer 1}
 \paragraph{a)}
-\paragraph{b)}
+$\bar{X} = 16.96$
 
+$1-\alpha = 0.90 \implies \alpha = 0.1$
+
+$z_{\alpha/2} = z_{0.05} = 1.645$
+
+Confidence interval of $\%90$ is $\bar{X} \pm z_{0.05}\dfrac{3}{\sqrt{10}} \Leftrightarrow [15.4, 18.5]$
+
+$1-\alpha = 0.99 \implies \alpha = 0.01$
+
+$z_{\alpha/2} = z_{0.005} = 2.576$
+
+Confidence interval of $\%99$ is $\bar{X} \pm z_{0.005}\dfrac{3}{\sqrt{10}} \Leftrightarrow [14.5, 19.4]$
+\paragraph{b)}
+$1-\alpha = 0.98 \implies \alpha = 0.02$
+
+$z_{\alpha/2} = z_{0.01} = 2.326$
+\begin{center}
+$n \geq (\frac{z_{0.01}\cdot\sigma}{\delta})^2$
+\end{center}
+\begin{center}
+    $n \geq (\frac{2.326\cdot3}{1.55})^2$
+\end{center}
+\begin{center}
+    $n \geq 20.267...$
+\end{center}
+
+The least n satisfying this inequality is $n = 21$.
+\newpage
 \section*{Answer 2}
 \paragraph{a)}
 These are not enough in order to make meaningful comments about the distribution of the data. We also need the standard deviation of the data.
@@ -63,6 +91,7 @@ Our test statistic $Z = -1.6$ belongs to the acceptance region; therefore, we ac
 In this case, restaurant A would be in my list of candidate restaurants.
 \paragraph{d)}
 I will consider placing an order from a restaurant if and only if the rating of that restaurant is not significantly lower than 7.5. There is no need for resorting to a statistical test for values restaurants with a rating greater than or equal to 7.5, a greater rating will always be desired. We should resort statistical tests if the rating is lower than 7.5.
+\newpage
 \section*{Answer 3}
 \paragraph{a)}
 We test the null hypothesis $H_0: \mu_A \geq \mu_B + 90$ against one sided left-tail alternative\\$H_A: \mu_A < \mu_B + 90$.
@@ -104,7 +133,6 @@ Degrees of freedom v (Satterthwaite's approximation)
 \[
     v = \dfrac{(\dfrac{s^2_X}{n}+\dfrac{s^2_Y}{m})^2}{\dfrac{s^4_X}{n^2(n-1)}+\dfrac{s^4_Y}{m^2(m-1)}} = \dfrac{(\dfrac{27.04}{20}+\dfrac{519.84}{32})^2}{\dfrac{731.1616}{400\cdot19}+\dfrac{270233.6256}{1024\cdot31}} \simeq 36
 \]
-\newpage
 $t_{0.01} = 2.434$ (36 degrees of freedom)
 
 Since the hypothesis is left-tailed
