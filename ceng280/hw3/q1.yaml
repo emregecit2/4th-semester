@@ -1,17 +1,16 @@
 
-input: '001'
+input: '00011'
 blank: ' '
 start state: 0
 table:
 
   0:
     0      : {write: ' ', R: 1}
-    x      : {R: accept}
+    ' '    : {R: accept}
 
   1:
     0      : {R}
     1      : {R}
-    x      : {L: 2}
     ' '    : {L: 2}
 
   2:
@@ -20,5 +19,5 @@ table:
   3:
     1      : {L}
     0      : {L}
-    x      : {R: 0}
+    ' '    : {R: 0}
   accept:
