@@ -1,0 +1,24 @@
+
+input: '100011'
+blank: ' '
+start state: convert_characters
+table:
+  convert_characters:
+    0: {write: x, R}
+    1: {write: y, R}
+    ' ': {L: find_last_character}
+  find_last_character:
+    0: {L}
+    1: {L}
+    x: {write: 0, R: copy_x}
+    y: {write: 1, R: copy_y}
+  copy_x:
+    0: {R}
+    1: {R}
+    ' ': {write: 0, L: find_last_character}
+  copy_y:
+    0: {R}
+    1: {R}
+    x: {R}
+    y: {R}
+    ' ': {write: 1, L: find_last_character}
