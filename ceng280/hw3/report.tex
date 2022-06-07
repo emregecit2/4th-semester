@@ -3,6 +3,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{enumitem}
 
 \usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
 \topmargin=-2cm
@@ -173,19 +174,24 @@ Define what it means for such a machine to decide a language L. Show that t step
 starting on an input of length n, can be simulated by a standard Turing machine in time that is
 polynomial in t and n.
 \subsection*{Solution:}
-\paragraph{1)} A Turing machine with a 2-dimensional tape is a quintuple $(K, \Sigma, \delta, s, H)$, where
+\paragraph{1)} A Turing machine with a 2-dimensional tape is a pentuple $(K, \Sigma, \delta, s, H)$, where
 
 \begin{itemize}
     \item $K$ is a finite set of states;
-    \item $\Sigma$ is a finite set of symbols containing the blank symbol $\sqcup$ but not containing $\uparrow$, $\nearrow$, $\rightarrow$, $\searrow$, $\downarrow$, $\swarrow$, $\leftarrow$, or $\nwarrow$;
+    \item $\Sigma$ is a finite set of symbols containing the blank symbol $\sqcup$ but not containing $\uparrow$, $\rightarrow$, $\downarrow$ or $\leftarrow$;
     \item $s\in K$ is the initial state;
     \item $H \subseteq K$ is the set of halting states;
-    \item $\delta$, the transititon function, $\delta: (K - H) \times  \Sigma \to (K - H) \times (\Sigma \cup \{\uparrow, \nearrow, \rightarrow, \searrow, \downarrow, \swarrow, \leftarrow, \nwarrow\})$;
+    \item $\delta$, the transititon function, $\delta: (K - H) \times  \Sigma \to (K - H) \times (\Sigma \cup \{\uparrow, \rightarrow, \downarrow, \leftarrow\})$ such that,
 \end{itemize}
+\begin{enumerate}[label=(\alph*)]
+    \item for all $q \in K-H$, if $\delta(q, \vartriangleright) = (p, b)$, then $b = \rightarrow$
+    \item for all $q \in K-H$, if $\delta(q, \bigtriangledown) = (p, b)$, then $b = \downarrow$
+    \item for all $q \in K-H$ and $a \in \Sigma$, if $\delta(q, a) = (p, b)$, then $b \neq \vartriangleright$ and $b \neq \bigtriangledown$
+\end{enumerate}
 
-\paragraph{2)} A Turing machine with a 2-dimensional M is said to decide a language $L$ if $L = L(M)$ and M halts on every input.????????????
 
-\paragraph{3)} First of all, we should define the mechanics of the classical Turing machine $M'$, that will simulate our 2-dimensional machine $M$.
+\paragraph{2)} Given a string w, let $t_w\in T$ be the function that has $t(i+1, 1) = w(i)$ for $0 < i \leq |w|$, $t(0, y) = \vartriangleright$ for $y\in \mathbb{N} $, $t(x, 0) = \bigtriangledown$ for all $x > 0$ and $t(x, y) = \sqcup$ otherwise. Then if we have a two-dimensional tape Turing machine M with two distinguished halting states y and n such that for any string $w$ either $(s, 1, 1, t_w) \vdash^*_M (y, i, j, t')$ or $(s, 1, 1, t_w) \vdash^*_M (n, i, j, t')$ for some $i, j$ and $t'\in T$, we let the language decided by M be the set of strings for which M thus halts in the y state.
+\paragraph{3)} First of all, we should define the mechanics of The Standard Turing Machine $M'$, that will simulate our 2-dimensional machine $M$.
 
 The tape of $M'$ must somehow contain all information in all tapes of $M$. A simple way of achieving this is by thinking that the $M'$ is divided into several tracks, with each "track" devoted to the simulation of a row of the 2d-tape.
 
