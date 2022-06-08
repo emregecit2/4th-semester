@@ -91,6 +91,7 @@ Note that in these descriptions, undefined transititons leads to rejection of th
     \centering
     \includegraphics[width=12cm]{Q1/100011o.png}
 \end{figure}
+\newpage
 \section*{Question 2}
 Design a Turing machine that computes the function $f(w) = ww^R$, $\Sigma(w) = \{0, 1\}$.
 \subsection*{States:}
@@ -189,11 +190,25 @@ polynomial in t and n.
     \item for all $q \in K-H$ and $a \in \Sigma$, if $\delta(q, a) = (p, b)$, then $b \neq \vartriangleright$ and $b \neq \bigtriangledown$
 \end{enumerate}
 
+A configuration of a Turing machine with a 2-dimensional tape is
+\begin{center}
+    $K \times N \times N \times T$,
+\end{center}
+Where $T$ is the set of functions from $N \times N$ to $\Sigma$, that have $t(0, y) = \vartriangleright$ and $t(x, 0) = \bigtriangledown$ for all $x, y \in \mathbb{N}$ and have $t(x, y)$ = for all but a finite number of $(x, y)$ pairs. Thus, we represent a configuration by the current state, current head position, and a list of all non-blank squares on hte tape.
 
-\paragraph{2)} Given a string w, let $t_w\in T$ be the function that has $t(i+1, 1) = w(i)$ for $0 < i \leq |w|$, $t(0, y) = \vartriangleright$ for $y\in \mathbb{N} $, $t(x, 0) = \bigtriangledown$ for all $x > 0$ and $t(x, y) = \sqcup$ otherwise. Then if we have a two-dimensional tape Turing machine M with two distinguished halting states y and n such that for any string $w$ either $(s, 1, 1, t_w) \vdash^*_M (y, i, j, t')$ or $(s, 1, 1, t_w) \vdash^*_M (n, i, j, t')$ for some $i, j$ and $t'\in T$, we let the language decided by M be the set of strings for which M thus halts in the y state.
-\paragraph{3)} First of all, we should define the mechanics of The Standard Turing Machine $M'$, that will simulate our 2-dimensional machine $M$.
+Given a string w, let $t_w\in T$ be the function that has $t(i+1, 1) = w(i)$ for $0 < i \leq |w|$, $t(0, y) = \vartriangleright$ for $y\in \mathbb{N} $, $t(x, 0) = \bigtriangledown$ for all $x > 0$ and $t(x, y) = \sqcup$ otherwise. Then if we have a two-dimensional tape Turing machine M with two distinguished halting states y and n such that for any string $w$ either $(s, 1, 1, t_w) \vdash^*_M (y, i, j, t')$ or $(s, 1, 1, t_w) \vdash^*_M (n, i, j, t')$ for some $i, j$ and $t'\in T$, we let the language decided by M be the set of strings for which M thus halts in the y state.
 
-The tape of $M'$ must somehow contain all information in all tapes of $M$. A simple way of achieving this is by thinking that the $M'$ is divided into several tracks, with each "track" devoted to the simulation of a row of the 2d-tape.
+From the definition of $T$, any $t \in T$ can be encoded as a finite set of ordered triples $(x, y, \sigma)$. If we encode these values along a tape, we can use dovetailing to assign a unique square for each possible $x, y$ value. We then fill in the non-blank entries of $t$ in this tabular format, so that $t(x, y)$ is stored in the $\dfrac{(i+j)^2+3i+j}{2}$th square. At any time during the computation, only finitely many squares of this encoding tape will be non-blank.
 
-After defining formal specifications of $M'$, we should fill in the input tape of $M'$ before starting the simulation.
+Therefore, we simulate $M$ with a three-tape Turing machine $M'$. $M'$ uses one tape for calculation, one to hold the encoding of the tape of $M$ as described above, and takes its input on the third. The calculations $M$ needs to perform are as follows:
+\begin{enumerate}
+    \item increment and decrement two registers, $i$ and $j$
+    \item simple multiplications and additions
+\end{enumerate}
+
+In each step of the computation, $M'$ looks at the current symbol on the encoding tape and at the current state of $M$. If the instrucions are to write a symbol, $M'$ writes that symbol and proceeds. If the instrucions are to move, $M'$ increments or decrements $i$ or $j$ as appropriate, then calculates the value of the dovetail function. $M'$ then moves the encoding-tape head all the way to the left, then out to the appropriate square.
+
+At any time, if $i$ and $j$ represents the largest $x$ and $y$ coordinates that $M$ has been in, then neither $i$ or $j$ is larger than $t$. Thus the process of simulating one move takes the time required to increment or decrement a binary register, compute some binary sums and products, and move one head by a numver of spaces that is a quadratic polynomial in $i$ and $j$, and thus is bounded by a quadratic polynomial in $t$. The increments and arithmetic are fast, and can be done in polynomial time in $t$. Thus the time to carry out $t$ steps, once we have finished the initial setup, is $\mathcal{O}(t^3)$. The initial setup consists copying out the tape of $M$ into its $M'$ and takes 2n-step computation of alternating writes and moves, so that it can be carried out in time $\mathcal{O}(n^3)$ by the same reasoning. Thus the overall simulation proceeds in time polynomial in $t$ and $n$.
+
+Up to here, we assumed that there will be a finite number of non-blank squares. But theoretically, the tile of the 2d-tape can be filled infinitely, and there can be an infinite number of non-blank squares. In that case, the Turing machine will fail halting, and can never be simulated. Considering this possibility, I offer a continuing the copying process, as the computation proceeds, instead of first copying the tape, and than doing the simulation. That is, in each state, if the read square on the encoding tape, if the read square is blank, enter another state, copy the corresponding symbol, and continue the computation. With this process, we need to be careful when copying a blank symbol from the 2d-tape, to the encoding tape. In order not to enter in an infinite loop, when copying a blank symbol, we need to write a special symbol to the encoding tape. This new algorithm runs in a similar time as the original algorithm, but it works with tapes that have infinitely many non-blank squares.
 \end{document}
