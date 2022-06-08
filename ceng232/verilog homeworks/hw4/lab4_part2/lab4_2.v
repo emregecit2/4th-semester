@@ -66,19 +66,19 @@ module lab4_2(// INPUTS
                     if (cache_size) begin
                         current_result = result;
                         case (instruction_cache[cache_index])
-                            3'b000: begin 
+                            3'b000: begin // ADD
                                 temp = result + value_cache[cache_index];
                                 if (temp > 2**10 - 1) overflow = 1;
                                 else overflow = 0;
                                 result = temp;
                             end
-                            3'b001: begin
+                            3'b001: begin // ADD2
                                 temp = result + previous_result + value_cache[cache_index];
                                 if (temp > 2**10 - 1) overflow = 1;
                                 else overflow = 0;
                                 result = temp;
                             end
-                            3'b010: begin
+                            3'b010: begin //FMA
                                 temp = result * previous_result + value_cache[cache_index];
                                 if (temp > 2**10 - 1) overflow = 1;
                                 else overflow = 0;
@@ -90,11 +90,11 @@ module lab4_2(// INPUTS
                                 result = count;
                                 overflow = 0;
                             end
-                            3'b101: begin
+                            3'b101: begin // BREW
                                 result = ~result;
                                 overflow = 0;
                             end
-                            3'b110: begin
+                            3'b110: begin // SETR
                                 v = value_cache[cache_index];
                                 overflow = 0;
                             end
