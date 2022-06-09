@@ -1,24 +1,31 @@
+name: example
+source code: |-
 
-input: '100011'
-blank: ' '
-start state: convert_characters
-table:
-  convert_characters:
-    0: {write: x, R}
-    1: {write: y, R}
-    ' ': {L: find_last_character}
-  find_last_character:
-    0: {L}
-    1: {L}
-    x: {write: 0, R: copy_x}
-    y: {write: 1, R: copy_y}
-  copy_x:
-    0: {R}
-    1: {R}
-    ' ': {write: 0, L: find_last_character}
-  copy_y:
-    0: {R}
-    1: {R}
-    x: {R}
-    y: {R}
-    ' ': {write: 1, L: find_last_character}
+  input: '100011'
+  blank: ' '
+  start state: convert_characters
+  table:
+    convert_characters:
+      0: {write: x, R}
+      1: {write: y, R}
+      ' ': {L: find_last_character}
+    find_last_character:
+      0: {L}
+      1: {L}
+      x: {write: 0, R: copy_x}
+      y: {write: 1, R: copy_y}
+    copy_x:
+      0: {R}
+      1: {R}
+      ' ': {write: 0, L: find_last_character}
+    copy_y:
+      0: {R}
+      1: {R}
+      x: {R}
+      y: {R}
+      ' ': {write: 1, L: find_last_character}
+positions:
+  convert_characters: {x: 274.92, y: 175.4, fixed: false}
+  find_last_character: {x: 391.44, y: 251.15, fixed: false}
+  copy_x: {x: 409.65, y: 389.59, fixed: false}
+  copy_y: {x: 514.06, y: 183.8, fixed: false}

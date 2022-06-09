@@ -1,23 +1,61 @@
+name: example
+source code: |-
 
-input: '00011'
-blank: ' '
-start state: 0
-table:
+  input: '00011'
+  blank: ' '
+  start state: initial
+  table:
+    
+    initial:
+      0      : {write: ' ', R: right}
+    0:
+      0      : {write: ' ', R: right}
+      ' '    : {R: accept}
 
-  0:
-    0      : {write: ' ', R: 1}
-    ' '    : {R: accept}
+    right:
+      0      : {R}
+      1      : {R}
+      ' '    : {L: 1}
 
-  1:
-    0      : {R}
-    1      : {R}
-    ' '    : {L: 2}
+    1:
+      1      : {write: ' ', L: left}
+    
+    left:
+      1      : {L}
+      0      : {L}
+      ' '    : {R: 0}
+    accept:
+positions:
+  '0': {x: 414.76, y: 347.47, fixed: false}
+  '1': {x: 394.21, y: 261.67, fixed: false}
+  initial: {x: 484.52, y: 169.45, fixed: false}
+  right: {x: 544, y: 310.62, fixed: false}
+  left: {x: 523.85, y: 236.55, fixed: false}
+  accept: {x: 270.78, y: 338.98, fixed: false}
+editor contents: |-
 
-  2:
-    1      : {write: ' ', L: 3}
-  
-  3:
-    1      : {L}
-    0      : {L}
-    ' '    : {R: 0}
-  accept:
+  input: '00011'
+  blank: ' '
+  start state: initial
+  table:
+    
+    initial:
+      0      : {write: ' ', R: right}
+
+    0:
+      0      : {write: ' ', R: right}
+      ' '    : {R: accept}
+
+    right:
+      0      : {R}
+      1      : {R}
+      ' '    : {L: 1}
+
+    1:
+      1      : {write: ' ', L: left}
+    
+    left:
+      1      : {L}
+      0      : {L}
+      ' '    : {R: 0}
+    accept:

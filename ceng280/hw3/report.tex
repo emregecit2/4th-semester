@@ -28,16 +28,17 @@ Design a Turing machine which recognizes the language $L = \{0^N1^N | N \geq 1\}
 $\Sigma = \{0, 1, \sqcup\}$, means that you cannot write any other symbol than these symbols.
 \subsection*{States:}
 \begin{itemize}
-    \item State 0 (Initial state): If the tape head is on a 0, changes it with a blank space, moves the tape head to right, and passes to the state 1. If it is on a blank space, passes to the acceptance state.
-    \item State 1: This state's task is finding the right end of the string. After finding the rightmost symbol in the string, the machine passes to state 2.
-    \item State 2: If the tape head is on a 1, changes it with a blank space, moves the tape head to left, and passes to the state 3. If it is on a blank space, passes to the acceptance state.
-    \item State 3: This state's task is finding the left end of the string. After finding the leftmost symbol in the string, the machine passes to state 0.
+    \item initial (Initial State): This state's purpose is rejecting empty strings. If the tape head is on a 0, it will go to state "right", otherwise the machine will reject the string and halt.
+    \item right: This state will drive the tape-head to the right.
+    \item 1: This state will check if the righmost symbol of the string is 1. If it is, changes it with a blank symbol, and changes machine state to "left".
+    \item left: This state will drive the tape-head to the left.
+    \item 0: This state will check if the leftmost symbol of the string is 0. If it is, changes it with a blank symbol, and changes machine state to "right". Otherwise, the machine will reject the string and halt.
 \end{itemize}
 Note that in these descriptions, undefined transititons leads to rejection of the string.
 \begin{figure}[H]
     \caption{Turing machine which recognizes the language $L = \{0^N1^N | N \geq 1\}$}
     \centering
-    \includegraphics[width=12cm]{Q1/turingmachine.io_.png}    
+    \includegraphics[width=13cm]{Q1/turingmachine.io_.png}    
 \end{figure}
 \newpage
 \subsection*{Sample inputs:}
@@ -79,7 +80,7 @@ Note that in these descriptions, undefined transititons leads to rejection of th
 \begin{figure}[H]
     \caption{0001110 rejected}
     \centering
-    \includegraphics[width=12cm]{Q1/001101o.png}  
+    \includegraphics[width=12cm]{Q1/0001110o.png}  
 \end{figure}
 \begin{figure}[H]
     \caption{Input = 100011}
