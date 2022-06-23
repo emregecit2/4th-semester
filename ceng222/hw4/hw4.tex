@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Emre Geçit\\
+
+ID : 2521581\\
+
+\section*{Answer 1}
+\paragraph{a)}
+$N \geq (\frac{z_{\alpha/2}}{\varepsilon })^2$
+
+$ 1 - \alpha = 0.99 \implies \alpha = 0.01$
+
+$z_{\alpha/2} = z_{0.005} \approx 2.575$
+
+$N \geq (\frac{2.575}{0.02})^2$
+
+$N \geq 16576.5625$
+
+The size of the Monte Carlo study must be at least $N = 16577$.
+\paragraph{b.1)}
+$E(X)  = \frac{\alpha}{\lambda}$ for a Gamma distributed random variable $X$.
+Substituting $\alpha = 190$ and $\lambda = 0.15$ we get:
+
+$E(X)_{gamma}  = \frac{190}{0.15} = 1266.\overline{6}$
+
+The expected value for the weight of an automobile is $1266.\overline{6}$\\
+
+\paragraph{b.2)}
+$E(X)_{gamma} = \frac{\alpha}{\lambda} = \frac{110}{0.01} = 11000$
+
+\paragraph{b.3)}
+Expected value for the total weights of all automobiles that pass over the bridge on a
+day is equal to the number of automobiles that pass over the bridge on a day multiplied by the expected value for the weight of an automobile.
+
+We know the expected value for the weight of an automobile is $E(X) = 1266.\overline{6}$.
+
+The number of automobiles that pass over the bridge on a day is a Poisson random variable with
+$\lambda = 50$.
+
+$E(X)_{poisson} = \lambda = 50$
+
+Expected value for the total weights of all automobiles that pass over the bridge on a day is:
+\begin{center}
+$50 \times 1266.\overline{6} = 63333.\overline{3}$
+\end{center}
+
+\paragraph{b.4)}
+The number of trucks that pass over the bridge on a day is a Poisson random variable with
+$\lambda = 10$.
+Expected value for the total weights of all trucks that pass over the bridge on a day is
+\begin{center}
+    $10 \times 11000 = 110000$
+\end{center}
+
+\section*{Answer 2}
+\subsection*{1)}
+\end{document}
+
