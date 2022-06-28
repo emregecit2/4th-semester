@@ -1,0 +1,198 @@
+=========== Official I/O for PE-9 ===========
+
+=== Test cases for salad_type/2 ===
+
+#1
+?- salad_type([lettuce,smoked_tofu,pickled_onion,olive_oil],Type).
+Type = vegan ;
+Type = vegetarian ;
+Type = omnivorous.
+
+#2
+?- salad_type([lettuce,smoked_tofu,pickled_onion,olive_oil], omnivorous).
+true.
+
+#3
+?- salad_type([lettuce,smoked_turkey,cucumber,olive_oil,ranch], vegan).
+false.
+
+#4
+?- salad_type([lettuce,smoked_turkey,tomato,olive_oil,lemon_juice], vegetarian).
+false.
+
+#5
+?- salad_type([lettuce,smoked_turkey,tomato,olive_oil,lemon_juice], Type).
+Type = omnivorous.
+
+#6
+?- salad_type([lettuce,hellim_cheese,cucumber,ranch],vegetarian).
+true .
+
+#7
+?- salad_type([lettuce,hellim_cheese,pickled_onion],Type).
+Type = vegetarian ;
+Type = omnivorous.
+
+#8
+?- salad_type([lettuce,smoked_tofu,hellim_cheese,cucumber,olive,balsamic_vinegar],vegan).
+false.
+
+#9
+?- salad_type([smoked_tofu,smoked_turkey,lettuce,olive_oil,ranch], vegan).
+false.
+
+#10
+?- salad_type([lettuce,olive_oil,mustard,balsamic_vinegar], vegan).
+true .
+
+
+
+=== Test cases for person_can_eat/3 ===
+
+#1
+?- person_can_eat(jason, [[lettuce,tomato,smoked_turkey],[lettuce,hellim_cheese,ranch],[lettuce,smoked_tofu,balsamic_vinegar]], Salad).
+Salad = [lettuce, tomato, smoked_turkey] ;
+Salad = [lettuce, hellim_cheese, ranch] ;
+Salad = [lettuce, smoked_tofu, balsamic_vinegar] ;
+false.
+
+#2
+?- person_can_eat(chidi, [[lettuce,tomato,smoked_turkey],[lettuce,hellim_cheese,ranch]], Salad).
+false.
+
+#3
+?- person_can_eat(eleanor, [[lettuce,smoked_tofu,tomato,olive_oil],[lettuce,smoked_turkey,cucumber,olive_oil,lemon_juice]], Salad).
+Salad = [lettuce, smoked_tofu, tomato, olive_oil] ;
+Salad = [lettuce, smoked_turkey, cucumber, olive_oil, lemon_juice] ;
+false.
+
+#4
+?- person_can_eat(chidi, [[lettuce,tomato,smoked_turkey],[lettuce,hellim_cheese,ranch],[lettuce,smoked_tofu,balsamic_vinegar]], Salad). 
+Salad = [lettuce, smoked_tofu, balsamic_vinegar] ;
+false.
+
+#5
+?- person_can_eat(tahani, [[lettuce,olive_oil,mustard,balsamic_vinegar],[lettuce,smoked_turkey,tomato,olive_oil,lemon_juice]], Salad).
+Salad = [lettuce, olive_oil, mustard, balsamic_vinegar] ;
+false.
+
+#6
+?- person_can_eat(eleanor, [[lettuce,olive_oil,mustard,balsamic_vinegar],[lettuce,smoked_turkey,tomato,olive_oil,lemon_juice]], Salad).
+Salad = [lettuce, olive_oil, mustard, balsamic_vinegar] ;
+Salad = [lettuce, smoked_turkey, tomato, olive_oil, lemon_juice] ;
+false.
+
+#7
+?- person_can_eat(tahani, [[lettuce,smoked_turkey,mustard,balsamic_vinegar],[lettuce,smoked_turkey,olive_oil,lemon_juice]], Salad).
+false.
+
+
+
+=== Test cases for possible_order_options/3 ===
+
+#1
+?- possible_order_options(chidi, bps, ItemList).
+ItemList = [lettuce, smoked_tofu, olive_oil] ;
+ItemList = [lettuce, smoked_tofu, lemon_juice] ;
+ItemList = [lettuce, smoked_tofu, balsamic_vinegar] ;
+false.
+
+#2
+?- possible_order_options(eleanor, ppppbcts, ItemList).
+false.
+
+#3
+?- possible_order_options(tahani, psp, ItemList).
+ItemList = [hellim_cheese, olive_oil, smoked_tofu] ;
+ItemList = [hellim_cheese, lemon_juice, smoked_tofu] ;
+ItemList = [hellim_cheese, balsamic_vinegar, smoked_tofu] ;
+ItemList = [smoked_tofu, olive_oil, hellim_cheese] ;
+ItemList = [smoked_tofu, lemon_juice, hellim_cheese] ;
+ItemList = [smoked_tofu, balsamic_vinegar, hellim_cheese] ;
+false.
+
+#4
+?- possible_order_options(jason, ppp, ItemList).
+ItemList = [smoked_turkey, hellim_cheese, smoked_tofu] ;
+ItemList = [smoked_turkey, smoked_tofu, hellim_cheese] ;
+ItemList = [hellim_cheese, smoked_turkey, smoked_tofu] ;
+ItemList = [hellim_cheese, smoked_tofu, smoked_turkey] ;
+ItemList = [smoked_tofu, smoked_turkey, hellim_cheese] ;
+ItemList = [smoked_tofu, hellim_cheese, smoked_turkey] ;
+false.
+
+#5
+?- possible_order_options(chidi, bpt, ItemList).
+ItemList = [lettuce, smoked_tofu, cucumber] ;
+ItemList = [lettuce, smoked_tofu, tomato] ;
+ItemList = [lettuce, smoked_tofu, pickled_onion] ;
+ItemList = [lettuce, smoked_tofu, olive] ;
+false.
+
+#6
+?- possible_order_options(eleanor, bcc, ItemList).
+ItemList = [lettuce, mustard, mayonnaise] ;
+ItemList = [lettuce, mustard, ranch] ;
+ItemList = [lettuce, mayonnaise, mustard] ;
+ItemList = [lettuce, mayonnaise, ranch] ;
+ItemList = [lettuce, ranch, mustard] ;
+ItemList = [lettuce, ranch, mayonnaise] ;
+false.
+
+#7
+?- possible_order_options(tahani, bss, ItemList).
+ItemList = [lettuce, olive_oil, lemon_juice] ;
+ItemList = [lettuce, olive_oil, balsamic_vinegar] ;
+ItemList = [lettuce, lemon_juice, olive_oil] ;
+ItemList = [lettuce, lemon_juice, balsamic_vinegar] ;
+ItemList = [lettuce, balsamic_vinegar, olive_oil] ;
+ItemList = [lettuce, balsamic_vinegar, lemon_juice] ;
+false.
+
+#8
+?- possible_order_options(chidi, pptttssc, ItemList).
+false.
+
+#9
+?- possible_order_options(jason, bpppssss, ItemList).
+false.
+
+#10
+?- possible_order_options(chidi, ctb, ItemList).
+ItemList = [mustard, cucumber, lettuce] ;
+ItemList = [mustard, tomato, lettuce] ;
+ItemList = [mustard, pickled_onion, lettuce] ;
+ItemList = [mustard, olive, lettuce] ;
+false.
+
+
+
+=== Test cases for count_per_type/2 ===
+
+#1
+?- count_per_type([[lettuce,tomato,smoked_turkey],[lettuce,hellim_cheese,ranch],[lettuce,smoked_tofu,balsamic_vinegar]], TypeList).
+TypeList = [[omnivorous, 1], [vegan, 1], [vegetarian, 1]].
+
+#2
+?- count_per_type([[lettuce,hellim_cheese,ranch],[lettuce,smoked_tofu,balsamic_vinegar],[lettuce,tomato,cucumber,lemon_juice,olive_oil]], TypeList).
+TypeList = [[vegetarian, 1], [vegan, 2]].
+
+#3
+?- count_per_type([], TypeList).
+TypeList = [].
+
+#4
+?- count_per_type([[lettuce,tomato,pickled_onions,olive_oil],[lettuce,smoked_tofu,cucumber,lemon_juice,mustard]], TypeList).
+TypeList = [[vegan, 2]].
+
+#5
+?- count_per_type([[lettuce,smoked_turkey,hellim_cheese,cucumber,pickled_onions,olives,lemon_juice,olive_oil,ranch],[lettuce,smoked_tofu,tomato,lemon_juice]], TypeList).
+TypeList = [[omnivorous, 1], [vegan, 1]].
+
+#6
+?- count_per_type([[lettuce,hellim_cheese,pickled_onions,olive_oil,balsamic_vinegar],[hellim_cheese,smoked_tofu,lettuce,cucumber,lemon_juice,mayonnaise],[lettuce,tomato,hellim_cheese],[hellim_cheese,smoked_tofu,lettuce,ranch]], TypeList).
+TypeList = [[vegetarian, 4]].
+
+#7
+?- count_per_type([[lettuce,smoked_turkey,pickled_onions,lemon_juice,balsamic_vinegar],[hellim_cheese,smoked_turkey,lettuce,olive_oil,mayonnaise],[lettuce,smoked_turkey,cucumber,smoked_turkey]], TypeList).
+TypeList = [[omnivorous, 3]].
