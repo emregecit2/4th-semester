@@ -1,4 +1,4 @@
-N = 16577;
+N = 4147;
 lambda_automobile_number = 50;
 lambda_truck_number = 10;
 lambda_automobile_weight = 0.15;
@@ -7,6 +7,13 @@ lambda_truck_weight = 0.01;
 alpha_truck_weight = 110;  
 TotalWeight=zeros(N,1);
 
+function y = poisscdf(x, lambda)
+  sum = 0;
+  for i=0:x;
+    sum = sum + lambda**i / factorial(i);
+  end
+  y = sum * e**-lambda;
+end
 function x = poissrand(lambda)
   U = rand;
   x = 0;
