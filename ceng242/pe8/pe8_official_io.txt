@@ -1,0 +1,339 @@
+=========== Official I/O for PE-8 ===========
+
+=== Test cases for is_movie_directed_by/2 ===
+
+#1
+?- is_movie_directed_by(matrix, wachowski_sisters).
+true. 
+
+#2
+?- is_movie_directed_by(matrix, Director).
+Director = wachowski_sisters.
+
+#3
+?- is_movie_directed_by(Title, wachowski_sisters).
+Title = matrix; 
+Title = matrix_reloaded;
+Title = matrix_revolutions;
+Title = matrix_resurrections.
+
+#4
+?- is_movie_directed_by(Title, sian_heder).
+Title = coda.
+
+#5
+?- is_movie_directed_by(dead_poets_society, Director).
+Director = peter_weir.
+
+#6
+?- is_movie_directed_by(moxie, amy_poehler).
+true.
+
+#7
+?- is_movie_directed_by(Movie, wes_anderson).
+Movie = fantastic_mr_fox ;
+Movie = moonrise_kingdom ;
+Movie = grand_budapest_hotel ;
+Movie = isle_of_dogs ;
+Movie = french_dispatch.
+
+#8
+?- is_movie_directed_by(beetlejuice, Director).
+Director = tim_burton.
+
+#9
+?- is_movie_directed_by(Movie, bong_joon_ho).
+Movie = parasite.
+
+#10
+?- is_movie_directed_by(mean_girls, Director).
+Director = mark_waters.
+
+
+
+=== Test cases for total_awards_nominated/2 ===
+
+#1
+?- total_awards_nominated(inside, Nominations).
+Nominations = 6.
+
+#2
+?- total_awards_nominated(what_we_do_in_the_shadows, Nominations).
+Nominations = 0.
+
+#3
+?- total_awards_nominated(moonlight, Nominations).
+Nominations = 14.
+
+#4
+?- total_awards_nominated(parasite, Nominations).
+Nominations = 9.
+
+#5
+?- total_awards_nominated(fight_club, Nominations).
+Nominations = 1.
+
+#6
+?- total_awards_nominated(social_network, Nominations).
+Nominations = 13.
+
+#7
+?- total_awards_nominated(lady_bird, Nominations).
+Nominations = 9.
+
+#8
+?- total_awards_nominated(little_women, Nominations).
+Nominations = 8.
+
+#9
+?- total_awards_nominated(dead_poets_society, Nominations).
+Nominations = 8
+
+#10
+?- total_awards_nominated(grand_budapest_hotel, Nominations).
+Nominations = 13.
+
+#11
+?- total_awards_nominated(kill_bill_vol_1, Nominations).
+Nominations = 1.
+
+#12
+?- total_awards_nominated(clockwork_orange, Nominations).
+Nominations = 7.
+
+#13
+?- total_awards_nominated(jaws, Nominations).
+Nominations = 8.
+
+#14
+?- total_awards_nominated(panic_room, Nominations).
+Nominations = 0.
+
+#15
+?- total_awards_nominated(jurassic_park, Nominations).
+Nominations = 3.
+
+
+
+=== Test cases for all_movies_directed_by/2 ===
+
+#1
+?- all_movies_directed_by(wachowski_sisters, Movies).
+Movies = [[matrix, matrix_reloaded, matrix_revolutions, matrix_resurrections].
+
+#2
+?- all_movies_directed_by(taika_waititi, Movies).
+Movies = [what_we_do_in_the_shadows, jojo_rabbit].
+
+#3
+?- all_movies_directed_by(sian_heder, Movies).
+Movies = [coda].
+
+#4
+?- all_movies_directed_by(wes_anderson, Movies).
+Movies = [fantastic_mr_fox, moonrise_kingdom, grand_budapest_hotel, isle_of_dogs, french_dispatch].
+
+#5
+?- all_movies_directed_by(david_fincher, Movies).
+Movies = [fight_club, panic_room, social_network, gone_girl].
+
+#6
+?- all_movies_directed_by(greta_gerwig, Movies).
+Movies = [lady_bird, little_women].
+
+#7
+?- all_movies_directed_by(peter_weir, Movies).
+Movies = [dead_poets_society].
+
+#8
+?- all_movies_directed_by(bong_joon_ho, Movies).
+Movies = [parasite].
+
+#9
+?- all_movies_directed_by(barry_jenkins, Movies).
+Movies = [moonlight].
+
+#10
+?- all_movies_directed_by(bo_burnham, Movies).
+Movies = [eighth_grade, inside].
+
+#11
+?- all_movies_directed_by(quentin_tarantino, Movies).
+Movies = [reservoir_dogs, pulp_fiction, kill_bill_vol_1, kill_bill_vol_2].
+
+#12
+?- all_movies_directed_by(stanley_kubrick, Movies).
+Movies = [clockwork_orange, shining, eyes_wide_shut, a_space_oddysey].
+
+#13
+?- all_movies_directed_by(steven_spielberg, Movies).
+Movies = [jaws, jurassic_park, west_side_story].
+
+#14
+?- all_movies_directed_by(ben_affleck, Movies).
+Movies = [argo].
+
+#15
+?- all_movies_directed_by(amy_poehler, Movies).
+Movies = [moxie].
+
+
+
+=== Test cases for total_movies_released_in/3 ===
+
+#1
+?- total_movies_released_in([inside,parasite,coda,french_dispatch,matrix_resurrections], 2021, Count).
+Count = 4.
+
+#2
+?- total_movies_released_in([fantastic_mr_fox, moonrise_kingdom, grand_budapest_hotel, isle_of_dogs, french_dispatch], 2021, Count).
+Count = 1.
+
+#3
+?- total_movies_released_in([matrix, matrix_reloaded, matrix_revolutions, matrix_resurrections], 2003, Count).
+Count = 2.
+
+#4
+?- total_movies_released_in([parasite, little_women, jojo_rabbit, isle_of_dogs, french_dispatch], 2019, Count).
+Count = 3.
+
+#5
+?- total_movies_released_in([dead_poets_society, gone_girl, what_we_do_in_the_shadows, grand_budapest_hotel], 2014, Count).
+Count = 3.
+
+#6
+?- total_movies_released_in([dead_poets_society, moonrise_kingdom, coda], 1975, Count).
+Count = 0.
+
+#7
+?- total_movies_released_in([inside], 2021, Count).
+Count = 1.
+
+#8
+?- total_movies_released_in([parasite], 2021, Count).
+Count = 0.
+
+#9
+?- total_movies_released_in([lady_bird, moonlight, moonrise_kingdom], 2015, Count).
+Count = 0.
+
+#10
+?- total_movies_released_in([coda,french_dispatch], 2021, Count).
+Count = 2.
+
+#11
+?- total_movies_released_in([matrix], 1999, Count).
+Count = 1.
+
+#12
+?- total_movies_released_in([social_network], 2010, Count).
+Count = 1.
+
+#13
+?- total_movies_released_in([inside,parasite,coda,french_dispatch,matrix_resurrections], 2021, Count).
+Count = 4.
+
+#14
+?- total_movies_released_in([panic_room,clockwork_orange,shining,eyes_wide_shut,reservoir_dogs], 2002, Count).
+Count = 1.
+
+#15
+?- total_movies_released_in([panic_room,mean_girls,kill_bill_vol_1,kill_bill_vol_2,matrix_reloaded], 2003, Count).
+Count = 2.
+
+#16
+?- total_movies_released_in([moxie,mean_girls,west_side_story,what_we_do_in_the_shadows,beetlejuice], 2021, Count).
+Count = 2.
+
+#17
+?- total_movies_released_in([jaws,shining], 1978, Count).
+Count = 0.
+
+#18
+?- total_movies_released_in([a_space_oddysey,panic_room], 2000, Count).
+Count = 0.
+
+#19
+?- total_movies_released_in([reservoir_dogs,pulp_fiction], 1994, Count).
+Count = 1.
+
+
+
+=== Test cases for all_movies_released_between/4 ===
+
+#1
+?- all_movies_released_between([inside, parasite, social_network, little_women,fantastic_mr_fox,dead_poets_society], 2010, 2019, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [parasite, social_network, little_women].
+
+#2
+?- all_movies_released_between([moonlight, coda], 1940, 1945, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [].
+
+#3
+?- all_movies_released_between([dead_poets_society, moonrise_kingdom, coda], 2000, 2015, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [moonrise_kingdom].
+
+#4
+?- all_movies_released_between([moonlight, coda], 2016, 2021, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [moonlight, coda].
+
+#5
+?- all_movies_released_between([matrix, matrix_reloaded, matrix_revolutions, matrix_resurrections], 2003, 2003, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [matrix_reloaded, matrix_revolutions].
+
+#6
+?- all_movies_released_between([dead_poets_society, fight_club, matrix], 1988, 2000, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [dead_poets_society, fight_club, matrix]).
+
+#7
+?- all_movies_released_between([dead_poets_society, fight_club, matrix], 1987, 1998, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [dead_poets_society].
+
+#8
+?- all_movies_released_between([gone_girl, grand_budapest_hotel, moonlight, lady_bird, isle_of_dogs], 2012, 2014, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [gone_girl, grand_budapest_hotel].
+
+#9
+?- all_movies_released_between([gone_girl, grand_budapest_hotel, moonlight, lady_bird, isle_of_dogs], 2013, 2018, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [gone_girl, grand_budapest_hotel, moonlight, lady_bird, isle_of_dogs].
+
+#10
+?- all_movies_released_between([gone_girl, grand_budapest_hotel, moonlight, lady_bird, isle_of_dogs], 2019, 2021, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [].
+
+#11
+?- all_movies_released_between([what_we_do_in_the_shadows], 2014, 2014, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [what_we_do_in_the_shadows].
+
+#12
+?- all_movies_released_between([parasite, jojo_rabbit], 2019, 2020, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [parasite, jojo_rabbit].
+
+#13
+?- all_movies_released_between([parasite, jojo_rabbit], 1940, 1945, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [].
+
+#14
+?- all_movies_released_between([dead_poets_society,reservoir_dogs,jurassic_park,pulp_fiction], 1989, 1994, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [dead_poets_society, reservoir_dogs, jurassic_park, pulp_fiction].
+
+#15
+?- all_movies_released_between([moxie,panic_room,shining,mean_girls], 1970, 1979, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [].
+
+#16
+?- all_movies_released_between([panic_room,mean_girls,kill_bill_vol_1,kill_bill_vol_2,matrix_reloaded,matrix_revolutions], 2003, 2005, MoviesBetweenGivenYears). 
+MoviesBetweenGivenYears = [mean_girls, kill_bill_vol_1, kill_bill_vol_2, matrix_reloaded, matrix_revolutions].
+
+#17
+?- all_movies_released_between([lady_bird,isle_of_dogs,eighth_grade,moonlight], 2016, 2017, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [lady_bird, moonlight].
+
+#18
+?- all_movies_released_between([argo,moonrise_kingdom], 2013, 2020, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [].
+
+#19
+?- all_movies_released_between([jojo_rabbit,west_side_story,lady_bird,eighth_grade], 2017, 2021, MoviesBetweenGivenYears).
+MoviesBetweenGivenYears = [jojo_rabbit, west_side_story, lady_bird, eighth_grade].
+
