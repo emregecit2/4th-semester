@@ -1,0 +1,56 @@
+ID: 1765439
+The student is at her/his 2nd year.
+COURSES:
+CENG111_Introduction To Computer Engineering Concepts : 	1
+CENG140_C Programming : 	0
+MATH119_Calculus with Analytic Geometry : 	100
+MATH120_Calculus of Functions of Several Variables : 	85
+MATH219_Introduction To Differential Equations : 	80
+MATH260_Basic Linear Algebra : 	0
+CENG213_Data Structures : 	75
+CENG223_Discrete Computational Structures : 	70
+CENG232_Logic Design : 	65
+CENG242_Programming Language Concepts : 	60
+CENG280_Formal Languages and Abstract Machines : 	1
+CENG315_Algorithms : 	0
+CENG331_Computer Organization : 	100
+CENG334_Introduction To Operating Systems : 	85
+CENG336_Introduction To Embedded Systems Development : 	80
+
+ID: 1765439
+The student is at her/his 2nd year.
+COURSES:
+CENG111_Introduction To Computer Engineering Concepts : 	1
+CENG140_C Programming : 	0
+MATH119_Calculus with Analytic Geometry : 	100
+MATH120_Calculus of Functions of Several Variables : 	85
+MATH219_Introduction To Differential Equations : 	80
+MATH260_Basic Linear Algebra : 	0
+CENG213_Data Structures : 	75
+CENG223_Discrete Computational Structures : 	70
+CENG232_Logic Design : 	65
+CENG242_Programming Language Concepts : 	60
+CENG280_Formal Languages and Abstract Machines : 	1
+CENG315_Algorithms : 	0
+CENG331_Computer Organization : 	100
+CENG334_Introduction To Operating Systems : 	85
+CENG336_Introduction To Embedded Systems Development : 	80
+
+ID: 3765426
+The student is at her/his 4th year.
+COURSES:
+CENG111_Introduction To Computer Engineering Concepts : 	60
+CENG140_C Programming : 	1
+MATH119_Calculus with Analytic Geometry : 	0
+MATH120_Calculus of Functions of Several Variables : 	100
+MATH219_Introduction To Differential Equations : 	85
+MATH260_Basic Linear Algebra : 	0
+CENG213_Data Structures : 	80
+CENG223_Discrete Computational Structures : 	75
+CENG232_Logic Design : 	70
+CENG242_Programming Language Concepts : 	65
+CENG280_Formal Languages and Abstract Machines : 	60
+CENG315_Algorithms : 	1
+CENG331_Computer Organization : 	0
+CENG334_Introduction To Operating Systems : 	100
+CENG336_Introduction To Embedded Systems Development : 	85
